@@ -15,11 +15,65 @@
 
 ## Changelog
 
-### index.html
-- 
+### client/index.html
 
-### style.css
-- 
+- [x] Initial Commit
+
+### client/static/css/main.css
+
+- [x] Initial Commit
+
+### client/static/js/layout.js
+
+- [x] Initial Commit
+
+### client/static/js/modal.js
+
+- [x] Initial Commit
+
+### client/static/js/requests.js
+
+- [x] Initial Commit
+
+### db/migrations/1_create_users.sql
+
+- [x] Initial Commit
+
+### db/migrations/2_create_habits.sql
+
+- [x] Initial Commit
+
+### api/dbConfig/dev_seeds.sql
+
+- [x] Initial Commit
+
+### api/dbConfig/init.js
+
+- [x] Initial Commit
+
+### api/dbConfig/seedDev.js
+
+- [x] Initial Commit
+
+### docker-compose.yaml
+
+- [x] Initial Commit
+
+### docker-compose.dev.yaml
+
+- [x] Initial Commit
+
+### docker-compose.test.yaml
+
+- [x] Initial Commit
+
+### api/.gitignore
+
+- [x] Initial Commit
+
+### .gitignore
+
+- [x] Initial Commit
 
 ### Bugs
 - 
