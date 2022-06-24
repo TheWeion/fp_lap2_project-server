@@ -67,6 +67,10 @@
 
 - [x] Initial Commit
 
+### api/package.json
+
+- [x] Initial Commit
+
 ### api/.gitignore
 
 - [x] Initial Commit
