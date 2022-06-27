@@ -33,7 +33,7 @@ module.exports = class User{
 	static get all(){
 		return new Promise (async (resolve, reject) => {
 			try {
-				const userData = await db.query(`SELECT *, habits.id FROM users;`);
+				const userData = await db.query(`SELECT * FROM users;`);
 				let users = userData.rows.map(user => new User(user));
 				resolve(users);
 			} catch (err) {
