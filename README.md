@@ -37,20 +37,24 @@
 
 ### db/migrations/1_create_users.sql
 
-- [x] Initial Commit
+- [x] Refactored Password for Cryptography.
+- [x] Refactored timestamp to automatically generate timestamp on record creation.
 - [x] Created Users table
+- [x] Initial Commit
 
 ### db/migrations/2_create_habits.sql
 
-- [x] Initial Commit
 - [x] Created Habits table
+- [x] Initial Commit
 
 ### api/dbConfig/dev_seeds.sql
 
-- [x] Initial Commit
 - [x] Updated seeds
+- [x] Initial Commit
 
 ### api/controllers/users.js
+
+- [x] Refactored Timestamp as this will happen directly within the SQL database.
 
 - [x] Implemented user controller.
 
@@ -112,6 +116,8 @@
 - [x] Setup Docker Test
 
 ### api/package.json
+
+- [x] Added Cryptography packages for password hashing.
 
 - [x] Initial Commit
 
