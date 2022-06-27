@@ -47,6 +47,10 @@
 
 - [x] Initial Commit
 
+### api/controllers/users.js
+
+- [x] Implemented user controller.
+
 ### api/models/habit.js
 
 - [x] Implemented habit model.
