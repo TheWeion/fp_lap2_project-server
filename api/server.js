@@ -13,8 +13,8 @@
 const express = require('express');
 const cors = require('cors');
 
-const userRoutes = require('./routes/user');
-const habitRoutes = require('./routes/habit');
+const userRoutes = require('./routes/users');
+const habitRoutes = require('./routes/habits');
 
 //
 // ─── GLOBALS ────────────────────────────────────────────────────────────────────

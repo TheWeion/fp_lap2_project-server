@@ -38,14 +38,45 @@
 ### db/migrations/1_create_users.sql
 
 - [x] Initial Commit
+- [x] Created Users table
 
 ### db/migrations/2_create_habits.sql
 
 - [x] Initial Commit
+- [x] Created Habits table
 
 ### api/dbConfig/dev_seeds.sql
 
 - [x] Initial Commit
+- [x] Updated seeds
+
+### api/controllers/users.js
+
+- [x] Implemented user controller.
+
+### api/controllers/habits.js
+
+- [x] Added UPDATE function.
+
+- [x] Fixed DELETE implementation.
+
+- [x] Implemented habits controller.
+
+### api/models/habit.js
+
+- [x] Added isComplete property.
+
+- [x] Fixed DELETE implementation.
+
+- [x] Implemented habit model.
+
+### api/models/user.js
+
+- [x] Fixed JOIN on getById method.
+
+- [x] Linked ids with habit's model.
+
+- [x] Implemented user model.
 
 ### api/index.js
 
@@ -57,23 +88,28 @@
 
 ### api/dbConfig/init.js
 
-- [x] Initial Commit
+- [x] Initial Commit - 
+- [x] Setup DB initialisation
 
 ### api/dbConfig/seedDev.js
 
 - [x] Initial Commit
+- [x] Setup FS
 
 ### docker-compose.yaml
 
 - [x] Initial Commit
+- [x] Setup Docker Configuration
 
 ### docker-compose.dev.yaml
 
 - [x] Initial Commit
+- [x] Setup Docker Dev
 
 ### docker-compose.test.yaml
 
 - [x] Initial Commit
+- [x] Setup Docker Test
 
 ### api/package.json
 

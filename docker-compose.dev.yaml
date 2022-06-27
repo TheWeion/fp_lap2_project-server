@@ -1,8 +1,8 @@
 services:
   client:
-    container_name: lap2Project_dev_client
+    container_name: lap2_project_dev_client
     build: ./client
-    image: lap2Project_client
+    image: lap2_project_client
     ports: 
       - 8080:8080
     working_dir: /code
@@ -12,7 +12,7 @@ services:
         target: /code
     command: [ "http-server" ]
   api:
-    container_name: lap2Project_dev_api
+    container_name: lap2_project_dev_api
     ports: 
       - 3000:3000
     environment: 
@@ -27,7 +27,7 @@ services:
     command: bash -c "npm install && npm run seedDev && npm run dev"
 
   db:
-    container_name: lap2Project_dev_db
+    container_name: lap2_project_dev_db
     volumes:
       - "dbdata:/var/lib/postgresql/data"
     environment: 
@@ -38,4 +38,4 @@ volumes:
   dbdata:
 networks: 
   default:
-    name: lap2Project_api
+    name: lap2_project_api
