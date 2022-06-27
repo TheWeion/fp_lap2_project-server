@@ -53,6 +53,8 @@
 
 ### api/controllers/habits.js
 
+- [x] Added UPDATE function.
+
 - [x] Fixed DELETE implementation.
 
 - [x] Implemented habits controller.
