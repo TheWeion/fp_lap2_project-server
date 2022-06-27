@@ -49,6 +49,7 @@ module.exports = class User{
 														JOIN habits
 														ON habits.user_id = users.id
 														WHERE users.id = $1;`, [id]);
+
 				let user = new User(userData.rows[0]);
 				resolve(user);
 			} catch (err) {

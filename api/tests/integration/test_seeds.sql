@@ -1,6 +1,6 @@
 TRUNCATE users, habits RESTART IDENTITY;
 
-INSERT INTO users (username, email, password)
+INSERT INTO users (username, email, password_digest)
 VALUES
     ('Test User 1', 'test.user1@gmail.com', 'qwerty'),
     ('Test User 2', 'test.user2@hotmail.com', '987654');
