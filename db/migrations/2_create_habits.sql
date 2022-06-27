@@ -4,9 +4,9 @@ CREATE TABLE habits (
     id serial PRIMARY KEY,
     name varchar(200),
     frequency int,
-    time timestamp,
+    time int,
     comment varchar(500),
-    iscomplete boolean,
+    isComplete boolean,
     user_id int
 );
 
