@@ -37,15 +37,50 @@
 
 ### db/migrations/1_create_users.sql
 
+- [x] Refactored Password for Cryptography.
+- [x] Refactored timestamp to automatically generate timestamp on record creation.
+- [x] Created Users table
 - [x] Initial Commit
 
 ### db/migrations/2_create_habits.sql
 
+- [x] Created Habits table
 - [x] Initial Commit
 
 ### api/dbConfig/dev_seeds.sql
 
+- [x] Updated seeds
 - [x] Initial Commit
+
+### api/controllers/users.js
+
+- [x] Refactored Timestamp as this will happen directly within the SQL database.
+
+- [x] Implemented user controller.
+
+### api/controllers/habits.js
+
+- [x] Added UPDATE function.
+
+- [x] Fixed DELETE implementation.
+
+- [x] Implemented habits controller.
+
+### api/models/habit.js
+
+- [x] Added isComplete property.
+
+- [x] Fixed DELETE implementation.
+
+- [x] Implemented habit model.
+
+### api/models/user.js
+
+- [x] Fixed JOIN on getById method.
+
+- [x] Linked ids with habit's model.
+
+- [x] Implemented user model.
 
 ### api/index.js
 
@@ -57,25 +92,32 @@
 
 ### api/dbConfig/init.js
 
-- [x] Initial Commit
+- [x] Initial Commit - 
+- [x] Setup DB initialisation
 
 ### api/dbConfig/seedDev.js
 
 - [x] Initial Commit
+- [x] Setup FS
 
 ### docker-compose.yaml
 
 - [x] Initial Commit
+- [x] Setup Docker Configuration
 
 ### docker-compose.dev.yaml
 
 - [x] Initial Commit
+- [x] Setup Docker Dev
 
 ### docker-compose.test.yaml
 
 - [x] Initial Commit
+- [x] Setup Docker Test
 
 ### api/package.json
+
+- [x] Added Cryptography packages for password hashing.
 
 - [x] Initial Commit
 

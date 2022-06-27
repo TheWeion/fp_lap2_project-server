@@ -9,6 +9,13 @@ describe('registration', () => {
     })
 
     describe('register form', () => {
+        test('Expect a register form', () => {
+            let form = document.querySelector('#register-form');
+            expect(form).toBeTruthy();
+        });
+    });
+
+    describe('register form information', () => {
         test('Expect a input for email', () => {
             let input = document.querySelector('#register-email');
             expect(input).toBeTruthy();
@@ -24,9 +31,10 @@ describe('registration', () => {
             expect(input).toBeTruthy();
         });
 
-        test('Expect a button to submit information', () => {
-            let input = document.querySelector('#register-submit');
-            expect(input).toBeTruthy();
+        test('Expect password and password-confirm to match', () => {
+            let pass1 = document.querySelector('#register-password');
+            let pass2 = document.querySelector('#register-password-confirm');
+            expect(pass1.value).toEqual(pass2.value);
         });
     });
 });
@@ -35,6 +43,13 @@ describe('login', () => {
     beforeEach(() => {
         document.documentElement.innerHTML = html.toString();
     })
+
+    describe('login form', () => {
+        test('Expect a login form', () => {
+            let form = document.querySelector('#login-form');
+            expect(form).toBeTruthy();
+        });
+    });
 
     describe('login form', () => {
         test('Expect a input for username', () => {
@@ -46,31 +61,5 @@ describe('login', () => {
             let input = document.querySelector('#login-password');
             expect(input).toBeTruthy();
         });
-
-        test('Expect a button to submit information', () => {
-            let input = document.querySelector('#login-submit');
-            expect(input).toBeTruthy();
-        });
     });
 });
-
-
-
-// describe('Title Contents', () => {
-//     test('contents of title will be Login/Registration', () => {
-//         const title = document.querySelector('title');
-//         const text = title.innerHTML;
-//         expect(text).toBe("Login/Registration");
-//     });
-// });
-
-// describe('h1', () => {
-//     test('body changes to red on mouse click', () => {
-//         const h1 = document.querySelector('h1');
-//         const bodyColor = document.body.style.backgroundColor;
-//         h1.onclick(
-//             expect(bodyColor).toBe("red")
-//         );
-        
-//     });
-// });

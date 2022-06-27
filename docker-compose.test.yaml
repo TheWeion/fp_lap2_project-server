@@ -1,6 +1,6 @@
 services:
   api:
-    container_name: lap2Project_test_api
+    container_name: lap2_project_test_api
     environment: 
       - PGUSER=importTeamName
       - PGHOST=db
@@ -12,7 +12,7 @@ services:
       - db
     tty: true
   db:
-    container_name: lap2Project_test_db
+    container_name: lap2_project_test_db
     volumes:
       - "test_db:/var/lib/postgresql/data"
     environment: 
@@ -22,4 +22,4 @@ volumes:
   test_db:
 networks: 
   default:
-    name: lap2Project_test
+    name: lap2_project_test

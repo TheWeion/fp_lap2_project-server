@@ -28,6 +28,7 @@
     "supertest": "^6.2.3"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.5"
+    "@popperjs/core": "^2.11.5",
+    "axios": "^0.27.2"
   }
 }
