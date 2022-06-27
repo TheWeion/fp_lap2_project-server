@@ -5,6 +5,7 @@ VALUES
     ('Test User 1', 'test.user1@gmail.com', 'qwerty'),
     ('Test User 2', 'test.user2@hotmail.com', '987654');
 
+
 INSERT INTO habits (name, frequency, time, comment, isComplete, user_id)
 VALUES
     (
