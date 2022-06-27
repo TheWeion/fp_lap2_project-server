@@ -1,13 +1,11 @@
-// const { request } = require("express");
-
 describe ('habits endpoints', () => {
     let api;
-    beforeEach(async => {
+    beforeEach(async () => {
         await resetTestDB()
     });
     
-    beforeAll(async => {
-        api = app.listen(5000, () => console.log('Test running on server port 5000'))
+    beforeAll(async ()=> {
+        api = app.listen(5000, () => console.log('Test server running on port 5000'))
     });
 
     afterAll(done => {
@@ -28,12 +26,13 @@ describe ('habits endpoints', () => {
             name: 'Spend time in nature', 
             frequency: 2, 
             time: 20, 
-            comment: NULL, 
+            comment: 'hug a tree', 
             isComplete: true, 
             user_id: 2
         })
         expect(res.statusCode).toEqual(201);
-        expect(res.body.length).toEqual(4);
+        const habits = await request(api).get('/habits')
+        expect(habits.body.length).toEqual(4);
     });
 
     it('should update a habit', async () => {
@@ -49,11 +48,11 @@ describe ('habits endpoints', () => {
         })
 
         expect(res.statusCode).toEqual(200);
-        expect(res.body).toHaveProperty('id');
+        // expect(res.body).toHaveProperty('id');
     });
 
     it('should delete a habit', async () => {
-        const res = await request(api).destroy('habits/3')
+        const res = await request(api).delete('habits/3')
         expect(res.statusCode).toEqual(204);
         expect(res.body.length).toEqual(2);
 
