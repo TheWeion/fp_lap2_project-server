@@ -53,8 +53,6 @@ async function update(req, res) {
 	};
 };
 
-
-
 async function destroy(req, res) {
 	try {
 		const habits = await Habit.getById(req.params.id);
@@ -69,5 +67,6 @@ module.exports = {
 	index,
 	show,
 	create,
+	update,
 	destroy
 };
