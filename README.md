@@ -86,6 +86,18 @@
 
 - [x] Implemented Cryptography route.
 
+### api/tests/unit/controllers/habits.spec.js
+
+- [x] Initial Commit.
+
+### api/tests/unit/controllers/users.spec.js
+
+- [x] Initial Commit.
+
+### api/tests/unit/models/Habit.spec.js
+
+- [x] Initial Commit.
+
 ### api/index.js
 
 - [x] Initial Commit - Setup Server initialisation
