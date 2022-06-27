@@ -24,16 +24,16 @@ module.exports = class User{
 	constructor(data) {
 		this.id = data.id;
 		this.username = data.username;
-		this.password = data.password;
+		this.passwordDigest = data.password_digest;
 		this.email = data.email;
-		this.created_at = timestamp;
+		this.createdAt = data.created_at;
 		this.habit = { name: data.habit, path: `/habits/${data.habit.id}` };
 	};
 	
 	static get all(){
 		return new Promise (async (resolve, reject) => {
 			try {
-				const userData = await db.query(`SELECT id, habit.id FROM users;`);
+				const userData = await db.query(`SELECT *, habits.id FROM users;`);
 				let users = userData.rows.map(user => new User(user));
 				resolve(users);
 			} catch (err) {
@@ -48,7 +48,7 @@ module.exports = class User{
 				const userData = await db.query(`SELECT users.*, habits.name as habit.name 
 														FROM users 
 														JOIN habits
-														ON user.habit = habits.id
+														ON users.habit = habits.id
 														WHERE users.id = $1;`, [id]);
 				let user = new User(userData.rows[0]);
 				resolve(user);
@@ -58,10 +58,10 @@ module.exports = class User{
 		});
 	};
 
-	static async create(username, password, email){
+	static async create({ username, password, email }){
 		return new Promise (async (resolve, reject) => {
 			try {
-				const userData = await db.query(`INSERT INTO users (username, password, email, timestamp) VALUES ($1, $2, $3, $4) RETURNING *;`, [username, password, email, timestamp]);
+				const userData = await db.query(`INSERT INTO users (username, email, password_digest, created_at) VALUES ($1, $2, $3, $4) RETURNING *;`, [username, password, email, timestamp]);
 				let user = new User(userData.rows[0]);
 				resolve(user);
 			} catch (err) {
