@@ -51,11 +51,21 @@
 
 - [x] Implemented user controller.
 
+### api/controllers/habits.js
+
+- [x] Fixed DELETE implementation.
+
+- [x] Implemented habits controller.
+
 ### api/models/habit.js
+
+- [x] Fixed DELETE implementation.
 
 - [x] Implemented habit model.
 
 ### api/models/user.js
+
+- [x] Fixed JOIN on getById method.
 
 - [x] Linked ids with habit's model.
 
