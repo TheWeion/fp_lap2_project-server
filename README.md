@@ -82,6 +82,10 @@
 
 - [x] Implemented user model.
 
+### api/routes/auth.js
+
+- [x] Implemented Cryptography route.
+
 ### api/index.js
 
 - [x] Initial Commit - Setup Server initialisation
@@ -89,6 +93,10 @@
 ### api/server.js
 
 - [x] Initial Commit - Setup Server configuration
+
+### api/.env
+
+- [x] Initial Commit
 
 ### api/dbConfig/init.js
 

@@ -52,7 +52,8 @@ VALUES
         10, 
         NULL,
         false,
-        3),
+        3
+    ),
 
     (
         'Floss', 
