@@ -57,24 +57,3 @@ describe('login', () => {
         });
     });
 });
-
-
-
-// describe('Title Contents', () => {
-//     test('contents of title will be Login/Registration', () => {
-//         const title = document.querySelector('title');
-//         const text = title.innerHTML;
-//         expect(text).toBe("Login/Registration");
-//     });
-// });
-
-// describe('h1', () => {
-//     test('body changes to red on mouse click', () => {
-//         const h1 = document.querySelector('h1');
-//         const bodyColor = document.body.style.backgroundColor;
-//         h1.onclick(
-//             expect(bodyColor).toBe("red")
-//         );
-        
-//     });
-// });
