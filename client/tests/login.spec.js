@@ -30,6 +30,12 @@ describe('registration', () => {
             let input = document.querySelector('#register-password');
             expect(input).toBeTruthy();
         });
+
+        test('Expect password and password-confirm to match', () => {
+            let pass1 = document.querySelector('#register-password');
+            let pass2 = document.querySelector('#register-password-confirm');
+            expect(pass1.value).toEqual(pass2.value);
+        });
     });
 });
 
