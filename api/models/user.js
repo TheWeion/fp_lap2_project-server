@@ -45,11 +45,12 @@ module.exports = class User{
 	static getById(id){
 		return new Promise (async (resolve, reject) => {
 			try {
-				const userData = await db.query(`SELECT users.*, habits.name as habit.name 
+				const userData = await db.query(`SELECT users.*, habits.name 
 														FROM users 
 														JOIN habits
-														ON users.habit = habits.id
+														ON habits.user_id = users.id
 														WHERE users.id = $1;`, [id]);
+
 				let user = new User(userData.rows[0]);
 				resolve(user);
 			} catch (err) {
