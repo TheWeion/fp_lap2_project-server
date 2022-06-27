@@ -38,14 +38,17 @@
 ### db/migrations/1_create_users.sql
 
 - [x] Initial Commit
+- [x] Created Users table
 
 ### db/migrations/2_create_habits.sql
 
 - [x] Initial Commit
+- [x] Created Habits table
 
 ### api/dbConfig/dev_seeds.sql
 
 - [x] Initial Commit
+- [x] Updated seeds
 
 ### api/controllers/users.js
 
@@ -85,23 +88,28 @@
 
 ### api/dbConfig/init.js
 
-- [x] Initial Commit
+- [x] Initial Commit - 
+- [x] Setup DB initialisation
 
 ### api/dbConfig/seedDev.js
 
 - [x] Initial Commit
+- [x] Setup FS
 
 ### docker-compose.yaml
 
 - [x] Initial Commit
+- [x] Setup Docker Configuration
 
 ### docker-compose.dev.yaml
 
 - [x] Initial Commit
+- [x] Setup Docker Dev
 
 ### docker-compose.test.yaml
 
 - [x] Initial Commit
+- [x] Setup Docker Test
 
 ### api/package.json
 

@@ -5,6 +5,7 @@ CREATE TABLE habits (
     name varchar(200),
     frequency int,
     time timestamp,
+    comment varchar(500),
     user_id int
 );
 
