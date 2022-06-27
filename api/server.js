@@ -15,6 +15,7 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/users');
 const habitRoutes = require('./routes/habits');
+const authRoutes = require('./routes/auth');
 
 //
 // ─── GLOBALS ────────────────────────────────────────────────────────────────────
@@ -24,11 +25,12 @@ const server = express();
 
 // ────────────────────────────────────────────────────────────────────────────────
 
-server.use(cors());
+server.use(cors('*'));
 server.use(express.json());
 
 server.use('/users', userRoutes);
 server.use('/habits', habitRoutes);
+server.use('/auth', authRoutes);
 
 server.get ('/', (_req, res) => res.send('Hello World!'));
 

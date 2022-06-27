@@ -9,7 +9,7 @@
 // ─── IMPORTS ────────────────────────────────────────────────────────────────────
 //
 
-const db = require('../dbconfig/init');
+const db = require('../dbConfig/init');
 const Habit = require('./habit');
 
 //
@@ -49,6 +49,18 @@ module.exports = class User{
 														JOIN habits
 														ON habits.user_id = users.id
 														WHERE users.id = $1;`, [id]);
+				let user = new User(userData.rows[0]);
+				resolve(user);
+			} catch (err) {
+				reject('User not found!');
+			};
+		});
+	};
+
+	static getByUsername(id){
+		return new Promise (async (resolve, reject) => {
+			try {
+				const userData = await db.query(`SELECT * FROM users WHERE username = $1;`, [id]);
 				let user = new User(userData.rows[0]);
 				resolve(user);
 			} catch (err) {
