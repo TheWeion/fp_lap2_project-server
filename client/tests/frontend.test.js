@@ -1,37 +1,29 @@
 const request = require("supertest");
 const app = require("../../api/server");
 
-describe('index.html', () => {
-    beforeEach(() => {
-        document.documentElement.innerHTML = html.toString();
-    })
+// beforeAll(() => {
+    // mongoDB.connect();
+// });
 
-    // describe('head', () => {
-    //     test('it has a title', () => {
-    //         let title = document.querySelector('title');
-    //         expect(title).toBeTruthy();
-    //     });
-    // });
+// afterAll((done) => {
+    // mongoDB.disconnect(done);
+// });
 
-    // describe('h1', () => {
-    //     test('body changes to red on mouse click', () => {
-    //         const h1 = document.querySelector('h1');
-    //         const bodyColor = document.body.style.backgroundColor;
-    //         h1.onclick(
-    //             expect(bodyColor).toBe("red")
-    //         );
-            
-    //     });
-    // });
+describe("Test paths", () => {
 
-    // describe('h2', () => {
-    //     test('contents of h2 will change to greeting on mouse over', () => {
-    //         const h2 = document.querySelector('h2');
-    //         const text = h2.innerHTML;
-    //         h2.onmouseover(
-    //             expect(text).toBe("Greetings")
-    //         );
-    //     });
-    // });
+    test("It should response the GET method", async () => {
+      const response = await request(app).get("/");
+      expect(response.statusCode).toBe(200);
+    });
+
+});
+
+describe("Send register user data", () => {
+
+    test("It should response the GET method", async () => {
+      const response = await request(app).post("/register")
+      .send({email: "email@gmail.com", username: "test", password: "pass"});
+      expect(response.statusCode).toBe(200);
+    });
 
 });
