@@ -2,7 +2,7 @@
 -- ─── DATABASE: DEV SEEDS ────────────────────────────────────────────────────────
 --
 
-INSERT INTO users (username, password)
+INSERT INTO users (username, email, password_digest)
 VALUES
     ('Terry10', 'terry10@gmail.com', 'abc123'),
     ('Sam11', 'sam11@hotmail.com', 'def456'),
@@ -15,7 +15,7 @@ VALUES
         1, 
         13,
         NULL,
-        true
+        true,
         1
     ),
 
@@ -68,7 +68,7 @@ VALUES
         1, 
         22,
         'Relax',
-        true 
+        true,
         2
     ),
 

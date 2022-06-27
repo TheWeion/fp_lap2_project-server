@@ -13,35 +13,45 @@ async function registerFormValidation(username, email, password, passwordConfirm
     }
 }
 
-const url = "localhost:3000";
-// TEST PAYLOAD //
-const testPayload = {username: "user", password:"pass", email: "user@gamil.com"};
+const url = 'http://localhost:3000';
 
 //Post request for submitting user data
 async function submitRegister(){
+
+  // TEST PAYLOAD //
+  // const testPayload = {username: "user", password:"pass", email: "user@gamil.com"};
+
+  // e.preventDefault();
   try {
-    const config = {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    }
-    const response = await fetch(`${url}`, config)
-    //const json = await response.json()
-    if (response.ok) {
-      console.log(response);
-        return response
-    } 
-  } catch (error) {
-      console.error(error);
+      const options = {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(testPayload)
+      }
+      const response = await fetch(`${url}/users`, options);
+      if(!response.ok) { 
+        throw console.error("Invalid request data");
+      }
+  } catch (err) {
+    console.warn(err);
   }
 }
 
 //Get request for obtaining user data
-function submitLogin(){
-  
+async function submitLogin(){
+  // TEST PAYLOAD //
+  // const testPayload = {username: "user", password:"pass"};
+  try {
+    const options = {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(testPayload)
+    }
+    const response = await fetch(`${url}/users`, options);
+    if(!response.ok) { 
+      throw console.error("Invalid request data");
+    }
+  } catch (err) {
+    console.warn(err);
+  }
 }
-
-submitRegister(testPayload);
