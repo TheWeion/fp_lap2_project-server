@@ -15,7 +15,7 @@ VALUES
         1, 
         13,
         NULL,
-        true
+        true,
         1
     ),
 
@@ -52,7 +52,8 @@ VALUES
         10, 
         NULL,
         false,
-        3),
+        3
+    ),
 
     (
         'Floss', 
@@ -68,7 +69,7 @@ VALUES
         1, 
         22,
         'Relax',
-        true 
+        true, 
         2
     ),
 
