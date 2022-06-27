@@ -1,6 +1,7 @@
 services:
   api:
     container_name: lap2_project_test_api
+    build: ./client
     environment: 
       - PGUSER=importTeamName
       - PGHOST=db
