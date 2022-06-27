@@ -4,6 +4,6 @@ CREATE TABLE users (
     id serial PRIMARY KEY,
     username varchar(200) UNIQUE,
     email varchar(100),
-    password varchar(50),
+    password varchar(50)
 );
 
