@@ -47,6 +47,10 @@
 
 - [x] Initial Commit
 
+### api/models/user.js
+
+- [x] Implemented user model.
+
 ### api/index.js
 
 - [x] Initial Commit - Setup Server initialisation
