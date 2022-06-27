@@ -44,17 +44,26 @@ async function submitRegister(){
 async function submitLogin(){
   // TEST PAYLOAD //
   const testPayload = {username: "user", password:"pass"};
-  try {
-    const options = {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(testPayload)
+
+  // check if token exists and is valid
+  if(!true){
+
+  }else{
+    // login and recieve new token
+    try {
+      const options = {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(testPayload)
+      }
+      const response = await fetch(`${url}/users`, options);
+      if(!response.ok) { 
+        throw console.error("Invalid request data");
+      }
+    } catch (err) {
+      console.warn(err);
     }
-    const response = await fetch(`${url}/users`, options);
-    if(!response.ok) { 
-      throw console.error("Invalid request data");
-    }
-  } catch (err) {
-    console.warn(err);
   }
 }
+
+submitRegister();
