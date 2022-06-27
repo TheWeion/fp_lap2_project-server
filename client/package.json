@@ -7,9 +7,12 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "jest"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest --watchAll --silent --coverage",
+    "coverage": "jest --coverage --silent"
   },
-  "jest":{
+  "jest": {
     "testEnvironment": "jsdom"
   },
   "keywords": [],
@@ -19,8 +22,12 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
+    "nodemon": "^2.0.18",
     "superagent": "^8.0.0",
-    "supertest": "^6.2.3",
-    "jest-environment-jsdom": "^28.1.1"
+    "supertest": "^6.2.3"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.5"
   }
 }
