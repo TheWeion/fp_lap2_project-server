@@ -46,8 +46,6 @@ module.exports = class Habit {
 				reject('User\'s habits could not be be found!');
 			};
 		});
-
-
 	};
 
 	static getById(id) {
@@ -70,6 +68,29 @@ module.exports = class Habit {
 				resolve(habit);
 			} catch (err) {
 				reject('Habit not created!');
+			};
+		});
+	};
+
+	static async update(id, name, frequency, time, _comment) {
+		return new Promise(async (resolve, reject) => {
+			try {
+				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment]);
+				let habit = new Habit(result.rows[0]);
+				resolve(habit);
+			} catch (err) {
+				reject('Habit could not be updated!');
+			};
+		});
+	};
+	
+	destroy() {
+		return new Promise(async (resolve, reject) => {
+			try {
+				const result = await db.query(`DELETE FROM habits WHERE id = $1 RETURNING id;`, [this.id]);
+				resolve(`Habit ${result.rows[0].id} deleted!`);
+			} catch (err) {
+				reject('Habit could not be deleted!');
 			};
 		});
 	};
