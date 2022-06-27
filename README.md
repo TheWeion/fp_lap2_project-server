@@ -47,6 +47,16 @@
 
 - [x] Initial Commit
 
+### api/models/habit.js
+
+- [x] Implemented habit model.
+
+### api/models/user.js
+
+- [x] Linked ids with habit's model.
+
+- [x] Implemented user model.
+
 ### api/index.js
 
 - [x] Initial Commit - Setup Server initialisation
