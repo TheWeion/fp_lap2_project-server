@@ -34,6 +34,8 @@
 ### client/static/js/requests.js
 
 - [x] Initial Commit
+- [x] register new user function
+- [x] login to existing user function
 
 ### db/migrations/1_create_users.sql
 
