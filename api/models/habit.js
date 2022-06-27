@@ -20,6 +20,7 @@ module.exports = class Habit {
 		this.frequency = data.frequency;
 		this.time = data.time;
 		this.comment = data.comment;
+		this.isComplete = data.isComplete;
 	};
 	
 	static get all() {
@@ -60,10 +61,10 @@ module.exports = class Habit {
 		});
 	};
 
-	static async create(name, frequency, time, _comment) {
+	static async create(name, frequency, time, _comment, isComplete) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const habitData = await db.query(`INSERT INTO habits (id, name, frequency, time, comment) VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [id, name, frequency, time, _comment]);
+				const habitData = await db.query(`INSERT INTO habits (id, name, frequency, time, comment, isComplete) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`, [id, name, frequency, time, _comment, isComplete]);
 				let habit = new Habit(habitData.rows[0]);
 				resolve(habit);
 			} catch (err) {
@@ -72,10 +73,10 @@ module.exports = class Habit {
 		});
 	};
 
-	static async update(id, name, frequency, time, _comment) {
+	static async update(id, name, frequency, time, _comment, isComplete) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment]);
+				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5 isComplete = $6 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment, isComplete]);
 				let habit = new Habit(result.rows[0]);
 				resolve(habit);
 			} catch (err) {
@@ -83,7 +84,7 @@ module.exports = class Habit {
 			};
 		});
 	};
-	
+
 	destroy() {
 		return new Promise(async (resolve, reject) => {
 			try {

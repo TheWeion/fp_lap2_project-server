@@ -61,6 +61,8 @@
 
 ### api/models/habit.js
 
+- [x] Added isComplete property.
+
 - [x] Fixed DELETE implementation.
 
 - [x] Implemented habit model.
