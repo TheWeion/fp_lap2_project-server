@@ -47,6 +47,14 @@
 
 - [x] Initial Commit
 
+### api/index.js
+
+- [x] Initial Commit - Setup Server initialisation
+
+### api/server.js
+
+- [x] Initial Commit - Setup Server configuration
+
 ### api/dbConfig/init.js
 
 - [x] Initial Commit
