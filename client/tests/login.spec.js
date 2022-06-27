@@ -9,6 +9,13 @@ describe('registration', () => {
     })
 
     describe('register form', () => {
+        test('Expect a register form', () => {
+            let form = document.querySelector('#register-form');
+            expect(form).toBeTruthy();
+        });
+    });
+
+    describe('register form information', () => {
         test('Expect a input for email', () => {
             let input = document.querySelector('#register-email');
             expect(input).toBeTruthy();
@@ -23,11 +30,6 @@ describe('registration', () => {
             let input = document.querySelector('#register-password');
             expect(input).toBeTruthy();
         });
-
-        test('Expect a button to submit information', () => {
-            let input = document.querySelector('#register-submit');
-            expect(input).toBeTruthy();
-        });
     });
 });
 
@@ -37,6 +39,13 @@ describe('login', () => {
     })
 
     describe('login form', () => {
+        test('Expect a login form', () => {
+            let form = document.querySelector('#login-form');
+            expect(form).toBeTruthy();
+        });
+    });
+
+    describe('login form', () => {
         test('Expect a input for username', () => {
             let input = document.querySelector('#login-username');
             expect(input).toBeTruthy();
@@ -44,11 +53,6 @@ describe('login', () => {
 
         test('Expect a input for password', () => {
             let input = document.querySelector('#login-password');
-            expect(input).toBeTruthy();
-        });
-
-        test('Expect a button to submit information', () => {
-            let input = document.querySelector('#login-submit');
             expect(input).toBeTruthy();
         });
     });
