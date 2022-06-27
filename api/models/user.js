@@ -27,7 +27,6 @@ module.exports = class User{
 		this.passwordDigest = data.password_digest;
 		this.email = data.email;
 		this.createdAt = data.created_at;
-		this.habit = { name: data.habit, path: `/habits/${data.habits.id}` };
 	};
 	
 	static get all(){
@@ -45,10 +44,11 @@ module.exports = class User{
 	static getById(id){
 		return new Promise (async (resolve, reject) => {
 			try {
-				const userData = await db.query(`SELECT users.*, habits.name FROM users 
-													JOIN habits 
-													ON habits.user_id = users.id 
-													WHERE users.id = $1; `, [id]);
+				const userData = await db.query(`SELECT users.*, habits.name 
+														FROM users 
+														JOIN habits
+														ON habits.user_id = users.id
+														WHERE users.id = $1;`, [id]);
 				let user = new User(userData.rows[0]);
 				resolve(user);
 			} catch (err) {

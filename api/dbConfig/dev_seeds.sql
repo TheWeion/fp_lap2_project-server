@@ -69,7 +69,7 @@ VALUES
         1, 
         22,
         'Relax',
-        true, 
+        true,
         2
     ),
 
