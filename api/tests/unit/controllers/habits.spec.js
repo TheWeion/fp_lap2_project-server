@@ -1,5 +1,20 @@
-const habitsController = require('../../../../src/controllers/habits');
-const Habit = require('../../../../src/models/habit');
+//
+// ─── JEST UNIT TESTS: HABITS ────────────────────────────────────────────────────
+//
+// Description: Test the Habit controller.
+//
+// ────────────────────────────────────────────────────────────────────────────────
+
+//
+// ─── IMPORTS ────────────────────────────────────────────────────────────────────
+//
+
+const habitsController = require('../../../controllers/habits');
+const Habit = require('../../../models/habit');
+
+//
+// ─── MOCKS ──────────────────────────────────────────────────────────────────────
+//
 
 const mockSend = jest.fn();
 const mockJson = jest.fn();
@@ -23,21 +38,23 @@ describe('Habits Controller', () => {
 
 	describe('show', () => {
 		test('should return a habit with a 200 status code', async () => {
-			let testHabit = { 
+			let testData = { 
 				id: 1, 
 				name: 'test habit', 
 				frequency: 3,
-				time: null, 
+				time: 3, 
+				comment: 'test comment',
 				isComplete: false,
-				created_at: '2020-01-01', 
+				user_id: 1
 			};
-			jest.spyOn(Habit, 'getById', 'get')
-				.mockResolvedValue(new Habit(testHabit));
+			jest.spyOn(Habit, 'getById')
+				.mockResolvedValue(new Habit(testData));
 
 			const mockReq = { params: { id: 1 } };
 			await habitsController.show(mockReq, mockRes);
 			expect(mockStatus).toHaveBeenCalledWith(200);
-			expect(mockJson).toHaveBeenCalledWith(new Habit(testHabit));
+			expect(mockJson).toHaveBeenCalledWith(new Habit(testData));
 		});
 	});
 });
+

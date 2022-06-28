@@ -9,7 +9,7 @@
 // ─── GLOBALS ────────────────────────────────────────────────────────────────────
 //
 
-const db = require('../dbconfig/init');
+const db = require('../dbConfig/init');
 
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -44,7 +44,7 @@ module.exports = class Habit {
 												JOIN habits 
 												ON users.id = habits.user_id
 												WHERE users.id = $1;`, [this.id]);
-				let users = new User(results.rows[0]);
+				let users = new Habit(results.rows[0]);
 				resolve(users);
 			} catch (err) {
 				reject('User\'s habits could not be be found!');
@@ -64,23 +64,11 @@ module.exports = class Habit {
 		});
 	};
 
-
-	static getbyUser (id) {
-        return new Promise (async (resolve, reject) => {
-            try {
-                let habitData = await db.query(`SELECT * FROM habits WHERE habits.user_id = $1;`, [ id ]);
-                const user = habitData.rows.map(user => new Habit(user));
-                resolve (user);
-            } catch (err) {
-                reject('Error retrieving user\'s Habits');
-            };
-        });
-    };
-
-	static async create(name, frequency, time, _comment, isComplete) {
+	static async create(inputData) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const habitData = await db.query(`INSERT INTO habits (id, name, frequency, time, comment, isComplete) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`, [id, name, frequency, time, _comment, isComplete]);
+				const {name, frequency, time, _comment, isComplete, user_id} = inputData;
+				const habitData = await db.query(`INSERT INTO habits (name, frequency, time, comment, isComplete, user_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`, [inputData.name, inputData.frequency, inputData.time, inputData.comment, inputData.isComplete, inputData.user_id]);
 				let habit = new Habit(habitData.rows[0]);
 				resolve(habit);
 			} catch (err) {
@@ -105,7 +93,7 @@ module.exports = class Habit {
 		return new Promise(async (resolve, reject) => {
 			try {
 				const result = await db.query(`DELETE FROM habits WHERE id = $1 RETURNING id;`, [this.id]);
-				resolve(`Habit ${result.rows[0].id} deleted!`);
+				resolve(`Habit ${result.id} deleted!`);
 			} catch (err) {
 				reject('Habit could not be deleted!');
 			};
