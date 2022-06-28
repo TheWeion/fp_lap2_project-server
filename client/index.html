@@ -7,6 +7,9 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link href="./static/css/main.css" rel="stylesheet">
 	<link href="./static/css/auth-modal.css" rel="stylesheet">
+	<link href="./static/css/quotes.css" rel="stylesheet">
+	<link href="./static/css/nav.css" rel="stylesheet">
+	<link href="./static/css/header.css" rel="stylesheet">
 	<!-- JS -->
 	<script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
@@ -14,15 +17,17 @@
 	<script defer src="./static/js/modal.js"></script>
 	<script defer src="./static/js/requests.js"></script>
 	<script defer src="./static/js/auth.js"></script>
+	<script defer src="./static/js/quotes.js"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js"></script>
+	
     <title>The Ultimate Habit Tracker</title>
   </head>
-  <body>
+  <body cz-shortcut-listen="true">
 	<header class="text-center">
 		<img class="img p-3" height="128px" height="128px" src="./static/img/logo.png" alt="The Ultimate Habit Tracker">
-		<nav class="navbar navbar-expand-lg bg-light">
+		<nav class="navbar navbar-expand-lg">
 			<div class="container-fluid">
-			  <a class="navbar-brand" href="#">Navbar</a>
+			  <a class="navbar-brand" href="/client/index.html">The Ultimate Habit Tracker</a>
 			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
@@ -43,35 +48,43 @@
 		  </nav>
 	</header>
 	<main class="container parallax">
-		<div id="catchphrase-container">
-			<h1 id="catchphrase">Something motivational here</h1>
-		</div>	
+		<section class="quotes-section">
+			<p class="advice-number">Advice # 117</p>
+    	<!-- Quote -->
+    		<q class="quotes">It is easy to sit up and take notice, what's difficult is getting up and taking action.</q>
+	    <!-- Dice BTN -->
+    		<div class="button-section">
+
+      		<div class="dice-img"></div>
+    		</div>
+
+		</section>
+		
 		<hr>
 		
-		<div class="cta-container">
+		<section class="cta-container">
 			<!-- Button trigger modal -->
-			<p>Click on the "Register Here" button to open the popup form.</p>
     		<div class="openBtn">
-      			<button class="openButton" onclick="openRegForm()"><strong>Register Here</strong></button>
+      			<input type="button" id="show-reg-button" value="Register" class="shadow">
     		</div>
-			
 			<!-- switch this to login if already registered -->
-			<input type="button" id="show-log-button" value="Login">
-		</div>
-
-		<hr>
-
-		<div class="flex-container">
+			<div class="openBtn">
+				<input type="button" id="show-log-button" value="Login" class="shadow">
+			</div>
+		</section>
+		<br>
+		<section>
+		<div class="flex-container d-*-flex">
 
 			<div class="row">
 			  <div class="col">
 			    <div class="img-container">
-				  <img src="./static/img/#" alt="img 1">
+				  <img src="https://picsum.photos/200/" alt="img 1">
 				</div>
 			  </div>
 			  <div class="col">
-			    <div class="text-container">
-			      <h4 class="text-title">Take control of your lifestyle</h4>
+			    <div class="text-container justify-content-*-center">
+			      <h4 class="text-title">Take control of your lifestyle:</h4>
 					<p class="text-body">Using our easy to use app, you can create and track you habits so that you can organise your lifestyle around you!</p>
 				</div>
 			  </div>
@@ -80,13 +93,13 @@
 			<div class="row">
 			  <div class="col">
 			    <div class="text-container">
-			      <h4 class="text-title">Take control of your lifestyle</h4>
+			      <h4 class="text-title">Track all your habits:</h4>
 					<p class="text-body">Using our easy to use app, you can create and track you habits so that you can organise your lifestyle around you!</p>
 				</div>
 			  </div>
 			  <div class="col">
 				<div class="img-container">
-				   <img src="./static/img/#" alt="img 2">
+				   <img src="https://picsum.photos/200" alt="img 2">
 				</div>
 			  </div>
 			</div>
@@ -94,26 +107,28 @@
 			<div class="row">
 			  <div class="col">
 				<div class="img-container">
-				   <img src="./static/img/#" alt="img 3">
+				   <img src="https://picsum.photos/200/300" alt="img 3">
 				</div>
 			  </div>
 			  <div class="col">
 			    <div class="text-container">
-					<h4 class="text-title">Take control of your lifestyle</h4>
-					<p class="text-body">Using our easy to use app, you can create and track you habits so that you can organise your lifestyle around you!</p>
+					<h4 class="text-title">Keep life varied:</h4>
+					<p class="text-body">Got some bad habits? Don't think you have to give them all up.... it's ok to have some, in moderation of course!</p>
 				</div>
 			  </div>
 			</div>
 		</div>
+	</section>
 	</main>
 
 	<hr>
 	<br>
     
-	<footer class="footer">
-		<p>Created by 'import userName from "Al-Jazari"';</p>
+	<div class="d-flex bg-dark">
+	<footer class="footer align-self-end">
+		<p class="footer-p">Created by 'import userName from "Al-Jazari"';</p>
 	</footer>
-
+	</div>
 	<script>
 		function openRegForm() {
 		  document.getElementById("openBtn").style.display = "block";
@@ -122,5 +137,8 @@
 		  document.getElementById("popupForm").style.display = "none";
 		}
 	  </script>
+	  
+		
+	  
   </body>
 </html>
