@@ -2,9 +2,9 @@
 // ─── FRONTEND DB FUNCTIONS ──────────────────────────────────────────────────────
 //
 
-//Requires values of 
+//Requires values of register form and validates password matchcase and not null username, email and password
 async function registerFormValidation({username, email, password}, passwordConfirm){
-    if(username && email){
+    if(username && email && password){
       if(password == passwordConfirm){
         return true;
       }
@@ -74,6 +74,7 @@ async function submitLogin(){
 //Get request to obtain users habits
 async function getHabits(){
 
+  //check if user is currently has valid token
   if(currentUser()){
     try {
       // TEST PAYLOAD //
@@ -84,7 +85,37 @@ async function getHabits(){
           method: 'GET',
           headers: { "Content-Type": "application/json" },
       }
-      const response = await fetch(`${url}/habits/user/${user_id}`, options);
+      const response = await fetch(`${url}/habits/users/${user_id}`, options);
+      if(!response.ok) { 
+        throw console.error("Invalid request data");
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  }else{
+    throw console.error("User is not logged in");
+  }
+}
+
+//Post request create new habit bound to user
+async function createHabit(){
+  // TEST PAYLOAD //
+  let userId;
+  const testPayload = {user_id: userId, title: "test habit", time: 1200, freq: 2, comment: "test comment"};
+  
+  //check if user is currently has valid token
+  if(currentUser()){
+    try {
+      userId = 1;
+      //get user id from token
+      // userId = localStorage.getItem(user_id);
+
+      const options = {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(testPayload)
+      }
+      const response = await fetch(`${url}/habits/`, options);
       if(!response.ok) { 
         throw console.error("Invalid request data");
       }
