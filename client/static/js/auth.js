@@ -32,13 +32,15 @@ async function requestRegistration(e) {
     }
 }
 
-function login(data){
+function saveToken(data){
     const payload = jwt_decode(data.token)
+
     localStorage.setItem('token', data.token);
-    localStorage.setItem('username', payload.username);
     localStorage.setItem('email', payload.email);
+    localStorage.setItem('username', payload.username);
     location.hash = '#feed';
 }
+
 
 function logout(){
     localStorage.clear();

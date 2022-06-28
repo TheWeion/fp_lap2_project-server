@@ -46,7 +46,7 @@ async function submitLogin(){
   const testPayload = {username: "user", password:"pass"};
 
   // check if token exists and is valid
-  if(!true){
+  if(tokenIsValid){
 
   }else{
     // login and recieve new token
@@ -57,13 +57,41 @@ async function submitLogin(){
           body: JSON.stringify(testPayload)
       }
       const response = await fetch(`${url}/users`, options);
-      if(!response.ok) { 
+      const data = await response.json()
+      if(response.ok){
+        console.log(data);
+        saveToken(data);
+      }else { 
         throw console.error("Invalid request data");
       }
+
     } catch (err) {
       console.warn(err);
     }
   }
 }
 
-submitRegister();
+//Get request to obtain users habits
+async function getHabits(){
+
+  if(currentUser()){
+    try {
+      // TEST PAYLOAD //
+      //user_id should be taken from token in local storage
+      const user_id = 1;
+
+      const options = {
+          method: 'GET',
+          headers: { "Content-Type": "application/json" },
+      }
+      const response = await fetch(`${url}/habits/user/${user_id}`, options);
+      if(!response.ok) { 
+        throw console.error("Invalid request data");
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  }else{
+    throw console.error("User is not logged in");
+  }
+}

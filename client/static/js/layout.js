@@ -2,6 +2,24 @@
 // ─── SITE CONSTRUCTION ──────────────────────────────────────────────────────────
 //
 
+const openRegFormButton = document.querySelector('#openRegButton').addEventListener('click', openTheForm)
+const closeRegFormButton = document.querySelector('#closeRegButton').addEventListener('click', closeTheForm)
+
+function openTheForm() {
+    document.getElementById("popupForm").style.display = "block";
+}
+function closeTheForm() {
+    document.getElementById("popupForm").style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+let modal = document.getElementById('loginPopup');
+    if (event.target == modal) {
+        closeForm();
+    }
+}
+
+
 const publicRoutes = ['#', '#login', '#register'];
 const privateRoutes = ['#feed', '#profile'];
 
@@ -55,6 +73,7 @@ function updateMain(path) {
 
 
 //Creates html list items containing habit data to populate habits-list
+//expects an array of objects, each object a habbit of the current user
 function populateHabitList(userHabits){
     const habitList = document.querySelector('#habits-list');
 
@@ -81,12 +100,7 @@ function populateHabitList(userHabits){
         listItem.append(container);
         habitList.append(listItem);
     }
-
-    createHabitInstance({name: "Habit test", freq:"Everyday", time:"1:30pm", comment:"test comment"});
 }
 
 // TEST FUNCTION INVOKING //
-populateHabitList([]);
-populateHabitList([]);
-populateHabitList([]);
-// TEST FUNCTION INVOKING //
+populateHabitList([{name: "Habit test 1", freq:"Everyday", time:"1:30pm", comment:"test comment"}, {name: "Habit test 2", freq:"Everyday", time:"1:30pm", comment:"test comment"}, {name: "Habit test 3", freq:"Everyday", time:"1:30pm", comment:"test comment"}]);
