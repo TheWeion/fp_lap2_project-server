@@ -21,6 +21,7 @@ module.exports = class Habit {
 		this.time = data.time;
 		this.comment = data.comment;
 		this.isComplete = data.isComplete;
+		this.userId = data.userId;
 	};
 	
 	static get all() {
@@ -39,7 +40,8 @@ module.exports = class Habit {
 		return new Promise(async (resolve, reject) => {
 			try {
 				const results = await db.query(`SELECT id, username 
-												FROM users 
+												FROM users
+												JOIN 
 												WHERE habit.id = $1;`, [this.id]);
 				let users = new User(results.rows[0]);
 				resolve(users);

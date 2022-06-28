@@ -7,6 +7,6 @@ CREATE TABLE habits (
     time int,
     comment varchar(500),
     isComplete boolean,
-    user_id int
+    userId int
 );
 
