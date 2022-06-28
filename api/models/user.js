@@ -12,11 +12,6 @@
 const db = require('../dbConfig/init');
 const Habit = require('./habit');
 
-//
-// ─── GLOBALS ────────────────────────────────────────────────────────────────────
-//
-
-let timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -44,10 +39,10 @@ module.exports = class User{
 	static getById(id){
 		return new Promise (async (resolve, reject) => {
 			try {
-				const userData = await db.query(`SELECT users.*, habits.name 
+				const userData = await db.query(`SELECT users.id, habits.* 
 														FROM users 
 														JOIN habits
-														ON habits.user_id = users.id
+														ON habits.userid = users.id
 														WHERE users.id = $1;`, [id]);
 
 				let user = new User(userData.rows[0]);
