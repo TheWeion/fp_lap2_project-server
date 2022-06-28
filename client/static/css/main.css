@@ -13,8 +13,50 @@
 	
 }
 
-body {
-
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
+.parallax {
+    /* The image used */
+    background-image: url("img_parallax.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  main {
+    display: flexbox;
+    background-color: lemonchiffon;
+    margin: auto;
+    padding: 10px;
+    transition: 1s ease-in-out;
+}
+
+.col {
+  border: 2px solid goldenrod;
+  padding: 20px;
+  margin: 10px 0;
+  background-color: palegoldenrod;
+  text-align: center;
+}
+
+.cta-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
 /* ──────────────────────────────────────────────────────────────────────────────── */
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+      background-attachment: scroll;
+    }
+  }
