@@ -11,10 +11,10 @@
 	<script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.umd.min.js"></script>
-	<script defer src="./static/js/layout.js"></script>
-	<script defer src="./static/js/modal.js"></script>
-	<script defer src="./static/js/requests.js"></script>
-	<script defer src="./static/js/auth.js"></script>
+	<script defer src="../js/auth.js"></script>
+	<script defer src="../js/layout.js"></script>
+	<script defer src="../js/modal.js"></script>
+	<script defer src="../js/requests.js"></script>
     <title>My Account</title>
 </head>
 <body>
@@ -42,79 +42,43 @@
 			</div>
 		  </nav>
 	</header>
-<main>
+<main class="container">
 	<div>
 		<h1>Welcome to your personal habit tracker!
 		</h1>
 		<h3>A place for you to track your habits, be they good or bad. Learn to control them, and live a better life.</h3>
 	</div>
 	<hr>
+	
+	<!-- HABIT TRACKER -->
 	<section>
-		<div>
-			<h4>My Habit List</h4>
-		</div>
-		<div>
-			<form>
-				<h5>Habit Tracker</h5>
-				<div class="row">
-					<div class="col">
-						<table class="table-primary">
-							<tr >
-								<th>MONTH</th>
-								<div id="date-el"></div>
-									
-							</tr>
-							<tr>
-								<th>HABIT</th>
-								<th>1</th> 
-								<th>2</th> 
-								<th>3</th> 
-								<th>4</th> 
-								<th>5</th> 
-								<th>6</th> 
-								<th>7</th> 
-								<th>8</th> 
-								<th>9</th> 
-								<th>10</th>
-								<th>11</th>
-								<th>12</th>
-								<th>13</th>
-								<th>14</th>
-								<th>15</th>
-								<th>16</th>
-								<th>17</th>
-								<th>18</th>
-								<th>19</th>
-								<th>20</th>
-								<th>21</th>
-								<th>22</th>
-								<th>23</th>
-								<th>24</th>
-								<th>25</th>
-								<th>26</th>
-								<th>27</th>
-								<th>28</th>
-								<th>29</th>
-								<th>30</th>
-								<th>31</th>
-							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				
-			</form>
+		<ul id="habits-list">
+			
+		</ul>
+	</section>
+
+	<!-- HABIT METRIC DATA -->
+	<section>
+		<div class="accordion accordion-flush" id="metric-accordion">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="flush-headingOne">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+					Your Habit Metric's
+					</button>
+				</h2>
+				<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+				<div class="accordion-body">Placeholder user metric data to contain current streak, timed out habits, ect.</div>
+			</div>
 		</div>
 	</section>
+
+	
 </main>
-<script>
+<!-- <script>
 	const DateTime = easepick.DateTime;
 	const today = new DateTime();
 	const dateEl = document.getElementById('date-el');
 	dateEl.innerHTML = `Today is: ${today.format('DD MMM YYYY')}`
-</script>
+</script> -->
 </body>
 </html>
