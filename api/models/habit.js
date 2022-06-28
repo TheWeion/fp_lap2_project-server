@@ -46,7 +46,7 @@ module.exports = class Habit {
 				let users = new User(results.rows[0]);
 				resolve(users);
 			} catch (err) {
-				reject('User\'s habits could not be be found!');
+				reject('User\'s habits could not be found!');
 			};
 		});
 	};
@@ -66,7 +66,7 @@ module.exports = class Habit {
 	static async create(name, frequency, time, _comment, isComplete) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const habitData = await db.query(`INSERT INTO habits (id, name, frequency, time, comment, isComplete) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`, [id, name, frequency, time, _comment, isComplete]);
+				const habitData = await db.query(`INSERT INTO habits (name, frequency, time, comment, isComplete) VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [name, frequency, time, _comment, isComplete]);
 				let habit = new Habit(habitData.rows[0]);
 				resolve(habit);
 			} catch (err) {
@@ -75,10 +75,13 @@ module.exports = class Habit {
 		});
 	};
 
-	static async update(id, name, frequency, time, _comment, isComplete) {
+	static async update(name, frequency, time, _comment, isComplete) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5 isComplete = $6 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment, isComplete]);
+				const result = await db.query(`UPDATE habits 
+													SET name = $2, frequency = $3, time = $4, comment = $5 isComplete = $6 	
+													WHERE id = $1 
+													RETURNING *;`, [name, frequency, time, _comment, isComplete]);
 				let habit = new Habit(result.rows[0]);
 				resolve(habit);
 			} catch (err) {

@@ -1,7 +1,20 @@
 services:
+  client:
+    container_name: lap2_project_test_client
+    build: ./client
+    environment: 
+      - PGUSER=importTeamName
+      - PGHOST=db
+      - PGPASSWORD=password
+      - PGDATABASE=lifestyle_test
+      - PGPORT=5432
+      - NODE_ENV=test
+    depends_on:
+      - db
+    tty: true 
+
   api:
     container_name: lap2_project_test_api
-    build: ./client
     environment: 
       - PGUSER=importTeamName
       - PGHOST=db

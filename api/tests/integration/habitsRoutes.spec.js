@@ -19,45 +19,48 @@ describe ('habits endpoints', () => {
         expect(res.body.length).toEqual(3);
     });
 
-    it('should create a new habit', async () => {
-        const res = await request(api)
-        .post('/habits')
-        .send({
+    it('should create a new habit', () => {
+        let newHabit = {
             name: 'Spend time in nature', 
             frequency: 2, 
             time: 20, 
             comment: 'hug a tree', 
-            isComplete: true, 
-            user_id: 2
-        })
-        expect(res.statusCode).toEqual(201);
-        const habits = await request(api).get('/habits')
-        expect(habits.body.length).toEqual(4);
+            isComplete: false
+        }
+
+        const res = request(api)
+        .post('/habits')
+        .send(newHabit)
+        .set('Accept', /application\/json/)
+        .expect(201)
+        .expect({ id: 4, ...newHabit});
+        
+        const habits = async () => {
+            await request(api).get('/habits')
+            expect(habits.body.length).toEqual(4);
+        }
     });
 
-    it('should update a habit', async () => {
-        const res = await request(api)
-        .patch('/habits/2')
-        .send({
-            name:'Eat healthy',
-            frequency: 2,
-            time: 14,
+    it('should update a habit', () => {
+        let updateHabit = {
             comment: 'try another recipe',
-            isComplete: true,
-            user_id: 1
-        })
-
-        expect(res.statusCode).toEqual(200);
-        // expect(res.body).toHaveProperty('id');
+            isComplete: true
+        }
+        const res = request(api)
+        .patch('/habits/2')
+        .send(updateHabit)
+        .expect(200)
+        .expect({id: 2, ...updateHabit})
     });
 
     it('should delete a habit', async () => {
-        const res = await request(api).delete('habits/3')
+        const res = await request(api).delete('/habits/3')
         expect(res.statusCode).toEqual(204);
-        expect(res.body.length).toEqual(2);
 
-        const habits = await request(api).get('/habits/3')
-        expect(habits.statusCode).toEqual(404);
-        expect(habits.body).toHaveProperty({message: err.message})
+        const deletedHabit = await request(api).get('/habits/3')
+        expect(deletedHabit.statusCode).toEqual(500)
+
+        const habits = await request(api).get('/habits')
+        expect(habits.body.length).toEqual(2);
     });
 })
