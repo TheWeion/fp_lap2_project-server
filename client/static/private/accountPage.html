@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Habits</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<link href="../css/main.css" rel="stylesheet">
+	<link href="../css/auth-modal.css" rel="stylesheet">
+	<!-- JS -->
+	<script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.umd.min.js"></script>
+	<script defer src="./static/js/layout.js"></script>
+	<script defer src="./static/js/modal.js"></script>
+	<script defer src="./static/js/requests.js"></script>
+	<script defer src="./static/js/auth.js"></script>
+    <title>My Account</title>
 </head>
 <body>
 	<header class="text-center">
@@ -21,9 +32,6 @@
 					<a class="nav-link active" aria-current="page" href="#">Home</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="#">Habits</a>
-				  </li>
-				  <li class="nav-item">
 					<a class="nav-link" href="../pages/info.html">How it Works</a>
 				  </li>
 				  <li class="nav-item">
@@ -34,7 +42,79 @@
 			</div>
 		  </nav>
 	</header>
-
-    
+<main>
+	<div>
+		<h1>Welcome to your personal habit tracker!
+		</h1>
+		<h3>A place for you to track your habits, be they good or bad. Learn to control them, and live a better life.</h3>
+	</div>
+	<hr>
+	<section>
+		<div>
+			<h4>My Habit List</h4>
+		</div>
+		<div>
+			<form>
+				<h5>Habit Tracker</h5>
+				<div class="row">
+					<div class="col">
+						<table class="table-primary">
+							<tr >
+								<th>MONTH</th>
+								<div id="date-el"></div>
+									
+							</tr>
+							<tr>
+								<th>HABIT</th>
+								<th>1</th> 
+								<th>2</th> 
+								<th>3</th> 
+								<th>4</th> 
+								<th>5</th> 
+								<th>6</th> 
+								<th>7</th> 
+								<th>8</th> 
+								<th>9</th> 
+								<th>10</th>
+								<th>11</th>
+								<th>12</th>
+								<th>13</th>
+								<th>14</th>
+								<th>15</th>
+								<th>16</th>
+								<th>17</th>
+								<th>18</th>
+								<th>19</th>
+								<th>20</th>
+								<th>21</th>
+								<th>22</th>
+								<th>23</th>
+								<th>24</th>
+								<th>25</th>
+								<th>26</th>
+								<th>27</th>
+								<th>28</th>
+								<th>29</th>
+								<th>30</th>
+								<th>31</th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</section>
+</main>
+<script>
+	const DateTime = easepick.DateTime;
+	const today = new DateTime();
+	const dateEl = document.getElementById('date-el');
+	dateEl.innerHTML = `Today is: ${today.format('DD MMM YYYY')}`
+</script>
 </body>
 </html>
