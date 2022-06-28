@@ -21,7 +21,7 @@ module.exports = class Habit {
 		this.time = data.time;
 		this.comment = data.comment;
 		this.isComplete = data.isComplete;
-		this.userId = data.userId;
+		this.user_id = data.user_id;
 	};
 	
 	static get all() {
