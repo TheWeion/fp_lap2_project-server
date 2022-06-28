@@ -1,0 +1,23 @@
+.navbar {
+    background-color: hsl(150, 100%, 66%);
+    width: 100%;
+}
+
+.navbar-brand {
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: #000 2px 2px;
+}
+.navbar-nav {
+    margin: auto;
+}
+.nav-link {
+    color: rgb(38, 112, 19);
+    padding: 10px;
+    letter-spacing: 2px;
+    margin: 0 20px;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
