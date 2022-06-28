@@ -41,7 +41,7 @@ module.exports = class User{
 				const userData = await db.query(`SELECT users.*, habits.name 
 														FROM users 
 														JOIN habits
-														ON habits.userId = users.id
+														ON habits.user_id = users.id
 														WHERE users.id = $1;`, [id]);
 
 				let user = new User(userData.rows[0]);
