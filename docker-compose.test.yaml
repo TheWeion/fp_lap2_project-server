@@ -12,6 +12,7 @@ services:
     depends_on:
       - db
     tty: true 
+
   api:
     container_name: lap2_project_test_api
     environment: 
