@@ -50,9 +50,6 @@ function updateMain(path) {
 // updateContent();
 
 
-
-
-
 //Creates html list items containing habit data to populate habits-list
 //expects an array of objects, each object a habbit of the current user
 function populateHabitList(userHabits){
