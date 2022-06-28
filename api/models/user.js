@@ -12,7 +12,6 @@
 const db = require('../dbConfig/init');
 const Habit = require('./habit');
 
-
 // ────────────────────────────────────────────────────────────────────────────────
 
 module.exports = class User{
@@ -39,10 +38,10 @@ module.exports = class User{
 	static getById(id){
 		return new Promise (async (resolve, reject) => {
 			try {
-				const userData = await db.query(`SELECT users.id, habits.* 
+				const userData = await db.query(`SELECT users.*, habits.name 
 														FROM users 
 														JOIN habits
-														ON habits.userid = users.id
+														ON habits.userId = users.id
 														WHERE users.id = $1;`, [id]);
 
 				let user = new User(userData.rows[0]);

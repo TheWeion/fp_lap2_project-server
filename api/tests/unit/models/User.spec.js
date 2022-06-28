@@ -46,5 +46,5 @@ describe('User', () => {
 			expect(user).toHaveProperty('id', 1);
 			expect(user).toHaveProperty('name', 'John');
 		}).timeout(5000);
-	}
+	});
 });
