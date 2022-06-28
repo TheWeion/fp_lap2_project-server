@@ -2,6 +2,24 @@
 // ─── SITE CONSTRUCTION ──────────────────────────────────────────────────────────
 //
 
+const openRegFormButton = document.querySelector('#openRegButton').addEventListener('click', openTheForm)
+const closeRegFormButton = document.querySelector('#closeRegButton').addEventListener('click', closeTheForm)
+
+function openTheForm() {
+    document.getElementById("popupForm").style.display = "block";
+}
+function closeTheForm() {
+    document.getElementById("popupForm").style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+let modal = document.getElementById('loginPopup');
+    if (event.target == modal) {
+        closeForm();
+    }
+}
+
+
 const publicRoutes = ['#', '#login', '#register'];
 const privateRoutes = ['#feed', '#profile'];
 

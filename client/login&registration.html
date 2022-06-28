@@ -17,7 +17,7 @@
     <h2>Registration Form</h2>
     <p>Click on the "Open Form" button to open the popup form.</p>
     <div class="openBtn">
-      <button class="openButton" onclick="openForm()"><strong>Open Form</strong></button>
+      <button id="openRegButton"><strong>Open Form</strong></button>
     </div>
     <div class="loginPopup">
       <div class="formPopup" id="popupForm">    
@@ -47,25 +47,9 @@
           <input type="password" id="register-password-confirm" placeholder="Confirm Password" name="register-password-confirm" required>
           <hr>
           <button type="submit" class="btn">Register</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          <button type="button" id="closeRegButton">Close</button>
         </form>
       </div>
     </div>
-    <script>
-      function openTheForm() {
-  document.getElementById("popupForm").style.display = "block";
-}
-
-function closeTheForm() {
-  document.getElementById("popupForm").style.display = "none";
-}
-      // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-        let modal = document.getElementById('loginPopup');
-            if (event.target == modal) {
-                closeForm();
-            }
-        }
-    </script>
   </body>
 </html>
