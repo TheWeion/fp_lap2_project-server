@@ -90,6 +90,10 @@
 
 - [x] Implemented Cryptography route.
 
+### api/tests/integration/authRoutes.spec.js
+
+- [x] Added authentication Tests.
+
 ### api/tests/unit/controllers/habits.spec.js
 
 - [x] Refactored and fixed tests.
