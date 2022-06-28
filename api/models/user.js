@@ -12,6 +12,7 @@
 const db = require('../dbConfig/init');
 const Habit = require('./habit');
 
+
 // ────────────────────────────────────────────────────────────────────────────────
 
 module.exports = class User{
@@ -39,7 +40,7 @@ module.exports = class User{
 		return new Promise (async (resolve, reject) => {
 			try {
 				const userData = await db.query(`SELECT users.id, habits.* 
-						S								FROM users 
+														FROM users 
 														JOIN habits
 														ON habits.userid = users.id
 														WHERE users.id = $1;`, [id]);
