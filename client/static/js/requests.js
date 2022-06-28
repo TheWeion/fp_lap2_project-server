@@ -3,13 +3,13 @@
 //
 
 //Requires values of 
-async function registerFormValidation(username, email, password, passwordConfirm){
+async function registerFormValidation({username, email, password}, passwordConfirm){
     if(username && email){
       if(password == passwordConfirm){
         return true;
       }
     }else{
-        return new Error("Invalid or incorrect information")
+        return new Error("Invalid or incorrect information"), false;
     }
 }
 
@@ -19,10 +19,12 @@ const url = 'http://localhost:3000';
 async function submitRegister(){
 
   // TEST PAYLOAD //
-  // const testPayload = {username: "user", password:"pass", email: "user@gamil.com"};
-
+  const testPayload = {username: "user",  email: "user@gamil.com", password:"pass"};
+  const passwordConfirm = document.querySelector('#register-password-confirm').value;
   // e.preventDefault();
-  try {
+
+  if(registerFormValidation(testPayload, passwordConfirm)){
+    try {
       const options = {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
@@ -32,26 +34,36 @@ async function submitRegister(){
       if(!response.ok) { 
         throw console.error("Invalid request data");
       }
-  } catch (err) {
-    console.warn(err);
+    } catch (err) {
+      console.warn(err);
+    }
   }
 }
 
-//Get request for obtaining user data
+//Post request for submitting login user data
 async function submitLogin(){
   // TEST PAYLOAD //
-  // const testPayload = {username: "user", password:"pass"};
-  try {
-    const options = {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(testPayload)
+  const testPayload = {username: "user", password:"pass"};
+
+  // check if token exists and is valid
+  if(!true){
+
+  }else{
+    // login and recieve new token
+    try {
+      const options = {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(testPayload)
+      }
+      const response = await fetch(`${url}/users`, options);
+      if(!response.ok) { 
+        throw console.error("Invalid request data");
+      }
+    } catch (err) {
+      console.warn(err);
     }
-    const response = await fetch(`${url}/users`, options);
-    if(!response.ok) { 
-      throw console.error("Invalid request data");
-    }
-  } catch (err) {
-    console.warn(err);
   }
 }
+
+submitRegister();

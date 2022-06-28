@@ -21,19 +21,19 @@ describe("Test paths", () => {
 describe("Send register user data", () => {
 
     test("It should response the GET method", async () => {
-      const response = await request(app).post("/register")
-      .send({email: "email@gmail.com", username: "test", password: "pass"});
-      expect(response.statusCode).toBe(200);
+      const testPayload = {username: "user2",  email: "user2@gamil.com", password:"pass2"};
+
+      const response = request(app).post("/users").send(testPayload).expect(201); 
     });
 
 });
 
-describe("Send register user data", () => {
+describe("Send login user data", () => {
 
     test("It should response the GET method", async () => {
-      const response = await request(app).post("/login")
-      .send({username: "test", password: "pass"});
-      expect(response.statusCode).toBe(200);
+      const testPayload = {username: "Ben12", password: "ghi789"}
+
+      request(app).post("/users").send(testPayload).expect(200);
     });
 
 });
