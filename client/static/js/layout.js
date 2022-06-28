@@ -81,9 +81,6 @@ function populateHabitList(userHabits){
         listItem.append(container);
         habitList.append(listItem);
     }
-    createHabitInstance({name: "Habit test 1", freq:"Everyday", time:"1:30pm", comment:"test comment"});
-
-    console.log('test');
 }
 
 // TEST FUNCTION INVOKING //
