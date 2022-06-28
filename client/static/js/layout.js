@@ -55,6 +55,7 @@ function updateMain(path) {
 
 
 //Creates html list items containing habit data to populate habits-list
+//expects an array of objects, each object a habbit of the current user
 function populateHabitList(userHabits){
     const habitList = document.querySelector('#habits-list');
 
@@ -81,12 +82,7 @@ function populateHabitList(userHabits){
         listItem.append(container);
         habitList.append(listItem);
     }
-
-    createHabitInstance({name: "Habit test", freq:"Everyday", time:"1:30pm", comment:"test comment"});
 }
 
 // TEST FUNCTION INVOKING //
-populateHabitList([]);
-populateHabitList([]);
-populateHabitList([]);
-// TEST FUNCTION INVOKING //
+populateHabitList([{name: "Habit test 1", freq:"Everyday", time:"1:30pm", comment:"test comment"}, {name: "Habit test 2", freq:"Everyday", time:"1:30pm", comment:"test comment"}, {name: "Habit test 3", freq:"Everyday", time:"1:30pm", comment:"test comment"}]);
