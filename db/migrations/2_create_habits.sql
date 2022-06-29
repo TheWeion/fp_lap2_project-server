@@ -6,7 +6,7 @@ CREATE TABLE habits (
     frequency int,
     time int,
     comment varchar(500),
-    isComplete boolean,
+    is_complete boolean default false,
     user_id int
 );
 

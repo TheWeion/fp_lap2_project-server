@@ -8,7 +8,7 @@ VALUES
     ('Sam11', 'sam11@hotmail.com', 'def456', 7),
     ('Ben12', 'ben12@gmail.com', 'ghi789', 2);
 
-INSERT INTO habits (name, frequency, time, comment, isComplete, user_id)
+INSERT INTO habits (name, frequency, time, comment, is_complete, user_id)
 VALUES
     (
         'Stay hydrated', 
