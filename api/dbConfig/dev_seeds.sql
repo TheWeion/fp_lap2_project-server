@@ -2,11 +2,11 @@
 -- ─── DATABASE: DEV SEEDS ────────────────────────────────────────────────────────
 --
 
-INSERT INTO users (username, email, password_digest)
+INSERT INTO users (username, email, password_digest, habit_streak)
 VALUES
-    ('Terry10', 'terry10@gmail.com', 'abc123'),
-    ('Sam11', 'sam11@hotmail.com', 'def456'),
-    ('Ben12', 'ben12@gmail.com', 'ghi789');
+    ('Terry10', 'terry10@gmail.com', 'abc123', 0),
+    ('Sam11', 'sam11@hotmail.com', 'def456', 7),
+    ('Ben12', 'ben12@gmail.com', 'ghi789', 2);
 
 INSERT INTO habits (name, frequency, time, comment, isComplete, user_id)
 VALUES
