@@ -111,31 +111,40 @@ async function getHabits(){
 }
 
 const createHabitForm = document.querySelector('#create-habit-form');
-createHabitForm.addEventListener('submit', submitLogin);
+createHabitForm.addEventListener('submit', createHabit);
 
 //Post request create new habit bound to user
 async function createHabit(){
 
-  //check if user is currently has valid token
+  //check if user is currently logged in
   if(currentUser()){
-    try {
-      let userId = localStorage.getItem('user_id');
-      const Payload = {user_id: userId, title: "test habit", time: 1200, freq: 2, comment: "test comment"};
-      
-      const options = {
-          method: 'POST',
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(Payload)
-      }
-      const response = await fetch(`${url}/habits/`, options);
-      if(!response.ok) { 
-        throw console.error("Invalid request data");
-      }
-    } catch (err) {
-      console.warn(err);
-    }
+
   }else{
     throw console.error("User is not logged in");
   }
-}
 
+    try {
+      const data = Object.fromEntries(new FormData(e.target));
+      let userId = localStorage.getItem('user_id');
+      const Payload = {user_id: userId, title: data['new-habit-title'], time: data['new-habit-time'], freq: data['new-habit-freq'], comment: data['new-habit-comment']};
+
+      if(data['new-habit-title']){
+
+        
+        const options = {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Payload)
+        }
+
+        const response = await fetch(`${url}/habits/`, options);
+        if(!response.ok) { 
+          throw console.error("Invalid request data");
+        }
+      }
+    }catch{
+      throw console.error("Could not complete request");
+    }
+};
+       
+      
