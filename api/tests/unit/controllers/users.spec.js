@@ -1,6 +1,7 @@
 const usersController = require('../../../controllers/users');
 const User = require('../../../models/user');
 
+
 const mockSend = jest.fn();
 const mockJson = jest.fn();
 const mockStatus = jest.fn(code => ({ send: mockSend, json: mockJson, end: jest.fn() }));
@@ -29,7 +30,7 @@ describe('Users Controller', () => {
 				email: 'abc123@example.com', 
 				password_digest: 'password'
 			};
-			jest.spyOn(User, 'getById', 'get')
+			jest.spyOn(User, 'getById')
 				.mockResolvedValue(new User(testUser));
 
 			const mockReq = { params: { id: 1 } };

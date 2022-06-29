@@ -11,6 +11,7 @@
 
 const User = require('../models/user');
 
+
 // ────────────────────────────────────────────────────────────────────────────────
 
 async function index(_req, res) {
