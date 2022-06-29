@@ -28,7 +28,7 @@ body, html {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: "Manrope", sans-serif;
+    font-family: var(--body-font);
 }
 
 .parallax {
@@ -69,21 +69,18 @@ main {
   width: 100%;
 }
 
-.openBtn {
-  padding: 10px;
-  margin: auto;
-}
-
-input {
+.button {
   padding: 10px;
   border-radius: 10px;
   text-transform: uppercase;
   border: 3px solid rgb(38, 112, 19);
   color:rgb(38, 112, 19);
+  text-decoration: none;
   transition: all ease-in-out 0.3s;
+  margin: auto;
 }
 
-input:hover {
+.button:hover {
   background-color: hsl(150, 100%, 66%);
   box-shadow: -1px 1px 88px 12px rgb(79, 231, 41);
   transform: scale(1.1);
@@ -120,7 +117,14 @@ img {
     .parallax {
       background-attachment: scroll;
     }
+}
+
+@media only screen and (max-device-width: 978px) {
+  .col {
+    display: flex;
+    flex-direction: column;
   }
+}
 
 footer {
   position: fixed;
