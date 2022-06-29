@@ -20,6 +20,7 @@ module.exports = class User{
 		this.passwordDigest = data.password_digest;
 		this.email = data.email;
 		this.createdAt = data.created_at;
+		this.habitStreak = data.habit_streak;
 	};
 	
 	static get all(){

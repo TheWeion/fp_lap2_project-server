@@ -5,5 +5,6 @@ CREATE TABLE users (
     username varchar(200) NOT NULL UNIQUE,
     email varchar(100) NOT NULL UNIQUE,
     password_digest varchar(500) NOT NULL,
-    created_at timestamp NOT NULL DEFAULT now()
+    created_at timestamp NOT NULL DEFAULT now(),
+    habit_steak INTEGER DEFAULT 0
 );
