@@ -34,8 +34,7 @@ async function show(req, res) {
 async function create(req, res) {
 	try {
 		const habits = await Habit.create(req.body);
-		const users = await habits.users;
-		res.status(201).json( ...habits, users );
+		res.status(201).send();
 	} catch (err) {
 		res.status(422).json({ message: err.message });
 	};

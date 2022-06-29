@@ -8,14 +8,14 @@ VALUES
     ('Sam11', 'sam11@hotmail.com', 'def456', 7),
     ('Ben12', 'ben12@gmail.com', 'ghi789', 2);
 
-INSERT INTO habits (name, frequency, time, comment, isComplete, user_id)
+INSERT INTO habits (name, frequency, time, comment, is_complete, user_id)
 VALUES
     (
         'Stay hydrated', 
         1, 
         13,
         NULL,
-        TRUE,
+        true,
         1
     ),
 
@@ -24,7 +24,7 @@ VALUES
         3, 
         17, 
         'some comment about fruits', 
-        FALSE,
+        false,
         2
     ),
 
@@ -33,7 +33,7 @@ VALUES
         2, 
         18, 
         'some comment about artistic activity',
-        TRUE,
+        true,
         1
     ),
 
@@ -42,7 +42,7 @@ VALUES
         1, 
         8, 
         NULL,
-        TRUE,
+        true,
         3
     ),
     
@@ -51,7 +51,7 @@ VALUES
         1, 
         10, 
         NULL,
-        FALSE,
+        false,
         3
     ),
 
@@ -60,7 +60,7 @@ VALUES
         2, 
         21, 
         'I have nice teeth',
-        FALSE,
+        false,
         1
     ),
 
@@ -69,7 +69,7 @@ VALUES
         1, 
         22,
         'Relax',
-        TRUE,
+        true,
         2
     ),
 
@@ -78,7 +78,7 @@ VALUES
         3, 
         19,
         NULL,
-        TRUE,
+        true,
         3
     );
 
