@@ -39,11 +39,13 @@ module.exports = class Habit {
 	static get users() {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const results = await db.query(`SELECT id, username 
+				const results = await db.query(`SELECT id, username
 												FROM users
-												JOIN 
+												FULL JOIN habits
+												On users.id = habits.user_id 
 												WHERE habit.id = $1;`, [this.id]);
 				let users = new User(results.rows[0]);
+				console.log(users)
 				resolve(users);
 			} catch (err) {
 				reject('User\'s habits could not be found!');
