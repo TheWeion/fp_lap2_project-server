@@ -9,7 +9,7 @@
 // ─── GLOBALS ────────────────────────────────────────────────────────────────────
 //
 
-const db = require('../dbconfig/init');
+const db = require('../dbConfig/init');
 
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -44,11 +44,11 @@ module.exports = class Habit {
 												FULL JOIN habits
 												On users.id = habits.user_id 
 												WHERE habit.id = $1;`, [this.id]);
-				let users = new User(results.rows[0]);
+				let users = new Habit(results.rows[0]);
 				console.log(users)
 				resolve(users);
 			} catch (err) {
-				reject('User\'s habits could not be found!');
+				reject('User\'s habits could not be be found!');
 			};
 		});
 	};
@@ -65,10 +65,11 @@ module.exports = class Habit {
 		});
 	};
 
-	static async create(name, frequency, time, _comment, isComplete) {
+	static async create(inputData) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const habitData = await db.query(`INSERT INTO habits (name, frequency, time, comment, isComplete) VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [name, frequency, time, _comment, isComplete]);
+				const {name, frequency, time, _comment, isComplete, user_id} = inputData;
+				const habitData = await db.query(`INSERT INTO habits (name, frequency, time, comment, isComplete, user_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`, [inputData.name, inputData.frequency, inputData.time, inputData.comment, inputData.isComplete, inputData.user_id]);
 				let habit = new Habit(habitData.rows[0]);
 				resolve(habit);
 			} catch (err) {
@@ -77,13 +78,10 @@ module.exports = class Habit {
 		});
 	};
 
-	static async update(name, frequency, time, _comment, isComplete) {
+	static async update(id, name, frequency, time, _comment, isComplete) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const result = await db.query(`UPDATE habits 
-													SET name = $2, frequency = $3, time = $4, comment = $5 isComplete = $6 	
-													WHERE id = $1 
-													RETURNING *;`, [name, frequency, time, _comment, isComplete]);
+				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5 isComplete = $6 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment, isComplete]);
 				let habit = new Habit(result.rows[0]);
 				resolve(habit);
 			} catch (err) {
@@ -96,7 +94,7 @@ module.exports = class Habit {
 		return new Promise(async (resolve, reject) => {
 			try {
 				const result = await db.query(`DELETE FROM habits WHERE id = $1 RETURNING id;`, [this.id]);
-				resolve(`Habit ${result.rows[0].id} deleted!`);
+				resolve(`Habit ${result.id} deleted!`);
 			} catch (err) {
 				reject('Habit could not be deleted!');
 			};

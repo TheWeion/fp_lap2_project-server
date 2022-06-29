@@ -60,6 +60,8 @@
 
 ### api/controllers/habits.js
 
+- [x] - Refactored Show and Create functions.
+
 - [x] Added UPDATE function.
 
 - [x] Fixed DELETE implementation.
@@ -67,6 +69,8 @@
 - [x] Implemented habits controller.
 
 ### api/models/habit.js
+
+- [x] Fixed Create and Users function.
 
 - [x] Added isComplete property.
 
@@ -86,17 +90,34 @@
 
 - [x] Implemented Cryptography route.
 
+### api/tests/integration/authRoutes.spec.js
+
+- [x] Added authentication Tests.
+
 ### api/tests/unit/controllers/habits.spec.js
+
+- [x] Refactored and fixed tests.
 
 - [x] Initial Commit.
 
 ### api/tests/unit/controllers/users.spec.js
 
+- [x] Refactored and fixed tests.
+
 - [x] Initial Commit.
 
 ### api/tests/unit/models/Habit.spec.js
 
+- [x] Refactored and fixed tests.
+
 - [x] Initial Commit.
+
+### api/tests/unit/models/User.spec.js
+
+- [x] Refactored and fixed tests.
+
+- [x] Initial Commit.
+
 
 ### api/index.js
 
@@ -112,7 +133,7 @@
 
 ### api/dbConfig/init.js
 
-- [x] Initial Commit - 
+- [x] Initial Commit
 - [x] Setup DB initialisation
 
 ### api/dbConfig/seedDev.js
