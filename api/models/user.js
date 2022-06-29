@@ -10,13 +10,6 @@
 //
 
 const db = require('../dbConfig/init');
-const Habit = require('./habit');
-
-//
-// ─── GLOBALS ────────────────────────────────────────────────────────────────────
-//
-
-let timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
 // ────────────────────────────────────────────────────────────────────────────────
 
@@ -27,6 +20,7 @@ module.exports = class User{
 		this.passwordDigest = data.password_digest;
 		this.email = data.email;
 		this.createdAt = data.created_at;
+		this.habitStreak = data.habit_streak;
 	};
 	
 	static get all(){
