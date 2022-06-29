@@ -12,6 +12,11 @@
 	<link href="./static/css/nav.css" rel="stylesheet">
 	<!-- JWT -->
 	<script defer src="https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js"></script>
+	<!-- JS -->
+	<script defer src="./static/js/requests.js"></script>
+	<script defer src="./static/js/auth.js"></script>
+	<script defer src="./static/js/modal.js"></script>
+
 
     <title>Register Form</title>
   </head>
@@ -46,7 +51,7 @@
 		<!-- Registration form -->
 		<section class="form-container ">
 			<h1>Registration</h1>
-			<form id="register-form" method="post" action="static/js/requests.js">
+			<form id="register-form">
 				<div class="form-group row">
 				<label for="register-username" class="col-4 col-form-label">Username: </label> 
 					<div class="col-8">
@@ -77,7 +82,7 @@
 				<br>
 				<div class="form-group row">
 					<div class="offset-4 col-8">
-						<button name="submit" type="submit" class="btn btn-primary">Register</button>
+						<button name="submit" type="submit" class="btn btn-primary submit">Register</button>
 
 						<!-- Login Open Modal Button -->
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -104,7 +109,7 @@
 
 					<!-- Login form -->
 					<section>
-						<form id="login-form" method="post" action="static/js/requests.js">
+						<form id="login-form" method="post">
 							<div class="form-group row">
 							<label for="login-username" class="col-4 col-form-label">Username</label> 
 							<div class="col-8">

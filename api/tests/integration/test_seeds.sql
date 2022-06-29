@@ -27,7 +27,7 @@ VALUES
     ),
 
     (
-        'Journal', 
+        'Journaling', 
         1,
         7,
         NULL,
