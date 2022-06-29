@@ -10,11 +10,19 @@
  * ─── GLOBALS ────────────────────────────────────────────────────────────────────
  */
  :root {
+  /* var (--bright-green) */
+  --bright-green: rgb(79, 231, 41); 
+  /* var (--light-cyan) */
   --light-cyan: hsl(193, 38%, 86%);
+  /* var (--neon-green) */
   --neon-green: hsl(150, 100%, 66%);
+  /* var (--grayish-blue) */
   --grayish-blue: #313a48;
+  /* var (--dark-grayish-blue) */
   --dark-grayish-blue: #202733;
+  /* var (--white) */
   --white: white;
+  /* var (--body-font) */
   --body-font: "Manrope", sans-serif;
 }
 
@@ -47,7 +55,7 @@ body, html {
   
 main {
     display: flexbox;
-    background-color: rgb(79, 231, 41);
+    background-color: var (--bright-green);
     transition: 1s ease-in-out;
 }
 
@@ -70,14 +78,15 @@ main {
 }
 
 .button {
+  margin: auto;
   padding: 10px;
-  border-radius: 10px;
-  text-transform: uppercase;
+  border-radius: 10px;  
   border: 3px solid rgb(38, 112, 19);
   color:rgb(38, 112, 19);
+  text-transform: uppercase;
   text-decoration: none;
   transition: all ease-in-out 0.3s;
-  margin: auto;
+  
 }
 
 .button:hover {
@@ -138,6 +147,8 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  color:rgb(23, 54, 16);
-  text-shadow: #000 1px;
+  color:rgb(23, 54, 16, 0.5);
+  /* text-shadow: #000 1px; */
+  padding-top: 10px;
+  font-size: 0.8rem;
 }
