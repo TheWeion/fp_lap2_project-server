@@ -16,7 +16,9 @@ async function registerFormValidation({username, email, password}, passwordConfi
 const url = 'http://localhost:3000';
 
 const regForm = document.querySelector('#register-form');
-regForm.addEventListener('submit', submitRegister);
+if(regForm != null){
+  regForm.addEventListener('submit', submitRegister);
+}
 
 //Post request for submitting user data
 async function submitRegister(e){
@@ -27,7 +29,7 @@ async function submitRegister(e){
   const payload = {username: data['register-username'],  email: data['register-email'], password: data['register-password']};
   const passwordConfirm =  data['register-password-confirm'];
 
-  if(registerFormValidation(data['register-password']), passwordConfirm){
+  if(registerFormValidation(payload, passwordConfirm)){
     console.log("register valid")
     try {
       const options = {
@@ -48,7 +50,9 @@ async function submitRegister(e){
 }
 
 const logForm = document.querySelector('#register-form');
-logForm.addEventListener('submit', submitLogin);
+if(logForm != null){
+  logForm.addEventListener('submit', submitLogin);
+}
 
 //Post request for submitting login user data
 async function submitLogin(){
@@ -83,18 +87,24 @@ async function submitLogin(){
   }
 }
 
+const windowName = window.location.pathname;
+if(windowName == '/client/static/private/accountPage.html'){
+  getHabits();
+}
+
 //Get request to obtain users habits
 async function getHabits(){
 
   //check if user is currently has valid token
-  if(currentUser()){
-    try {
-      const user_id = localStorage.getItem('user_id');
+  try{
+    if(currentUser()){
 
+      const user_id = localStorage.getItem('user_id');
       const options = {
           method: 'GET',
           headers: { "Content-Type": "application/json" },
       }
+
       const response = await fetch(`${url}/habits/users/${user_id}`, options);
       const data = await response.json()
       if(response.ok) { 
@@ -102,16 +112,19 @@ async function getHabits(){
       }else{
         throw console.error("Invalid request data");
       }
-    } catch (err) {
-      console.warn(err);
+    }else{
+      console.error("User is not logged in");
     }
-  }else{
-    throw console.error("User is not logged in");
+    
+  }catch{
+    throw console.warn('Could not complete request');
   }
 }
 
 const createHabitForm = document.querySelector('#create-habit-form');
-createHabitForm.addEventListener('submit', createHabit);
+if(createHabitForm != null){
+  createHabitForm.addEventListener('submit', createHabit);
+}
 
 //Post request create new habit bound to user
 async function createHabit(){
