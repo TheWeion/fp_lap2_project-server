@@ -6,5 +6,5 @@ CREATE TABLE users (
     email varchar(100) NOT NULL UNIQUE,
     password_digest varchar(500) NOT NULL,
     created_at timestamp NOT NULL DEFAULT now(),
-    habit_steak INTEGER DEFAULT 0
+    habit_streak INTEGER DEFAULT 0
 );
