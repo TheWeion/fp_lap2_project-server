@@ -15,7 +15,7 @@ VALUES
         1, 
         13,
         NULL,
-        true,
+        TRUE,
         1
     ),
 
@@ -24,7 +24,7 @@ VALUES
         3, 
         17, 
         'some comment about fruits', 
-        false,
+        FALSE,
         2
     ),
 
@@ -33,7 +33,7 @@ VALUES
         2, 
         18, 
         'some comment about artistic activity',
-        true,
+        TRUE,
         1
     ),
 
@@ -42,7 +42,7 @@ VALUES
         1, 
         8, 
         NULL,
-        true,
+        TRUE,
         3
     ),
     
@@ -51,7 +51,7 @@ VALUES
         1, 
         10, 
         NULL,
-        false,
+        FALSE,
         3
     ),
 
@@ -60,7 +60,7 @@ VALUES
         2, 
         21, 
         'I have nice teeth',
-        false,
+        FALSE,
         1
     ),
 
@@ -69,7 +69,7 @@ VALUES
         1, 
         22,
         'Relax',
-        true,
+        TRUE,
         2
     ),
 
@@ -78,7 +78,7 @@ VALUES
         3, 
         19,
         NULL,
-        true,
+        TRUE,
         3
     );
 

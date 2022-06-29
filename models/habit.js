@@ -21,6 +21,7 @@ module.exports = class Habit {
 		this.frequency = data.frequency;
 		this.time = data.time;
 		this.comment = data.comment;
+		this.user_id = data.user_id;
 		this.isComplete = data.isComplete;
 		this.user_id = data.user_id;
 	};
