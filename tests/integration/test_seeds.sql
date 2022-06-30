@@ -1,12 +1,12 @@
 TRUNCATE users, habits RESTART IDENTITY;
 
-INSERT INTO users (username, email, password_digest)
+INSERT INTO users (username, email, password_digest, habit_streak)
 VALUES
-    ('Test User 1', 'test.user1@gmail.com', 'qwerty'),
-    ('Test User 2', 'test.user2@hotmail.com', '987654');
+    ('Test User 1', 'test.user1@gmail.com', 'qwerty', 7),
+    ('Test User 2', 'test.user2@hotmail.com', '987654', 2);
 
 
-INSERT INTO habits (name, frequency, time, comment, isComplete, user_id)
+INSERT INTO habits (name, frequency, time, comment, is_complete, user_id)
 VALUES
     (
         'Meditate', 
