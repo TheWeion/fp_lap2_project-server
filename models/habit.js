@@ -21,8 +21,7 @@ module.exports = class Habit {
 		this.frequency = data.frequency;
 		this.time = data.time;
 		this.comment = data.comment;
-		this.user_id = data.user_id;
-		this.isComplete = data.isComplete;
+		this.is_complete = data.is_complete;
 		this.user_id = data.user_id;
 	};
 	
@@ -41,7 +40,7 @@ module.exports = class Habit {
 	static get users() {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const results = await db.query(`SELECT id, username
+				const results = await db.query(`SELECT id, username, habits.*
 												FROM users
 												FULL JOIN habits
 												On users.id = habits.user_id 
@@ -86,7 +85,7 @@ module.exports = class Habit {
 	static async update(id, name, frequency, time, _comment, is_complete) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5 is_complete = $6 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment, is_complete]);
+				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5, is_complete = $6 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment, is_complete]);
 				let habit = new Habit(result.rows[0]);
 				resolve(habit);
 				metrics.habitsByUserId(id);
