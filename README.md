@@ -7,6 +7,7 @@
 * The live website can be accessed: [HERE](https://fp-lap2-habit-tracker-server.herokuapp.com/)
 
 ### Installation
+
 * Clone or download the repo.
 * Run `npm install` to install dependencies.
 
