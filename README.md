@@ -15,28 +15,6 @@
 
 ## Changelog
 
-### client/index.html
-
-- [x] Initial Commit
-
-### client/static/css/main.css
-
-- [x] Initial Commit
-
-### client/static/js/layout.js
-
-- [x] Initial Commit
-
-### client/static/js/modal.js
-
-- [x] Initial Commit
-
-### client/static/js/requests.js
-
-- [x] Initial Commit
-- [x] register new user function
-- [x] login to existing user function
-
 ### db/migrations/1_create_users.sql
 
 - [x] Refactored Password for Cryptography.
@@ -49,20 +27,20 @@
 - [x] Created Habits table
 - [x] Initial Commit
 
-### api/dbConfig/dev_seeds.sql
+### dbConfig/dev_seeds.sql
 
 - [x] Updated seeds
 - [x] Initial Commit
 
-### api/controllers/users.js
+### controllers/users.js
 
 - [x] Refactored Timestamp as this will happen directly within the SQL database.
 
 - [x] Implemented user controller.
 
-### api/controllers/habits.js
+### controllers/habits.js
 
-- [x] - Refactored Show and Create functions.
+- [x] Refactored Show and Create functions.
 
 - [x] Added UPDATE function.
 
@@ -70,7 +48,7 @@
 
 - [x] Implemented habits controller.
 
-### api/models/habit.js
+### models/habit.js
 
 - [x] Fixed Create and Users function.
 
@@ -80,7 +58,7 @@
 
 - [x] Implemented habit model.
 
-### api/models/user.js
+### models/user.js
 
 - [x] Fixed JOIN on getById method.
 
@@ -88,57 +66,56 @@
 
 - [x] Implemented user model.
 
-### api/routes/auth.js
+### routes/auth.js
 
 - [x] Implemented Cryptography route.
 
-### api/tests/integration/authRoutes.spec.js
+### tests/integration/authRoutes.spec.js
 
 - [x] Added authentication Tests.
 
-### api/tests/unit/controllers/habits.spec.js
+### tests/unit/controllers/habits.spec.js
 
 - [x] Refactored and fixed tests.
 
 - [x] Initial Commit.
 
-### api/tests/unit/controllers/users.spec.js
+### tests/unit/controllers/users.spec.js
 
 - [x] Refactored and fixed tests.
 
 - [x] Initial Commit.
 
-### api/tests/unit/models/Habit.spec.js
+### tests/unit/models/Habit.spec.js
 
 - [x] Refactored and fixed tests.
 
 - [x] Initial Commit.
 
-### api/tests/unit/models/User.spec.js
+### tests/unit/models/User.spec.js
 
 - [x] Refactored and fixed tests.
 
 - [x] Initial Commit.
 
-
-### api/index.js
+### index.js
 
 - [x] Initial Commit - Setup Server initialisation
 
-### api/server.js
+### server.js
 
 - [x] Initial Commit - Setup Server configuration
 
-### api/.env
+### .env
 
 - [x] Initial Commit
 
-### api/dbConfig/init.js
+### dbConfig/init.js
 
 - [x] Initial Commit
 - [x] Setup DB initialisation
 
-### api/dbConfig/seedDev.js
+### dbConfig/seedDev.js
 
 - [x] Initial Commit
 - [x] Setup FS
@@ -158,13 +135,13 @@
 - [x] Initial Commit
 - [x] Setup Docker Test
 
-### api/package.json
+### package.json
 
 - [x] Added Cryptography packages for password hashing.
 
 - [x] Initial Commit
 
-### api/.gitignore
+### .gitignore
 
 - [x] Initial Commit
 
