@@ -39,9 +39,9 @@ router.post('/login', async (req, res) => {
 		const user = await User.getByUsername(req.body.username);
 		if(!user) { throw new Error (`${user} not a registered user!`); }
 
-		const isValid = await bcrypt.compare(req.body.password, user.password);
+		const isValid = await bcrypt.compare(req.body.password, user.passwordDigest);
 		if (!!isValid){
-			const payload = { username: user.username, email: user.email };
+			const payload = { username: user.username, email: user.email, id: user.id };
 			const sendToken = (err, token) => {
 				if (err) { throw new Error('Error in token generation.')}
 				res.status(200).json({
@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
 					token: token
 				});
 			};
-			jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 60 }, sendToken);
+			jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" }, sendToken);
 		} else {
 			throw new Error('User could not be authenticated.');
 		};
