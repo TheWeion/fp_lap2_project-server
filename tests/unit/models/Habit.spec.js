@@ -59,9 +59,10 @@ describe('Habit', () => {
 
 	describe('create', () => {
 		test('it resolves with a new habit on a successful db query', async () => {
-			let habitData = { id: 1, name: 'Cycling', frequency: 1, time: 13, comment: '', isComplete: false, user_id: 1 };			jest.spyOn(db, 'query')
-				.mockResolvedValueOnce({ rows: [ habitData ] });
-			const result = await Habit.create('Cycling', 2, 12,'test',false);
+			let habitData = { id: 1, name: 'Cycling', frequency: 1, time: 13, comment: '', is_complete: false, user_id: 1 };			
+			jest.spyOn(db, 'query')
+				.mockResolvedValueOnce({ rows: [habitData] });
+			const result = await Habit.create(habitData);
 			expect(result).toBeInstanceOf(Habit);
 		});
 	});

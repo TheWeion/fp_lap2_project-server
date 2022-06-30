@@ -16,7 +16,7 @@ describe('auth endpoints', () => {
 	it('should return a 401 status code when a user attempts to login with invalid credentials', async () => {
 		const response = await request(api)
 			.post('/login')
-			.send({ username: 'invalid', password: 'password' });
+			.send({ username: 'invalid', password: 'password' })
 		expect(response.status).toBe(401);
 	});
 

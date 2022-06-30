@@ -69,10 +69,13 @@ module.exports = class Habit {
 	static async create(inputData) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const habitData = await db.query(`INSERT INTO habits (name, frequency, time, comment, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [inputData.name, inputData.frequency, inputData.time, inputData._comment, inputData.user_id]);
+				const {name, frequency, time, _comment, is_complete, user_id} = inputData;
+				const habitData = await db.query(`INSERT INTO habits (name, frequency, time, comment, is_complete, user_id) 
+													VALUES ($1, $2, $3, $4, $5, $6) 
+													RETURNING *;`, [inputData.name, inputData.frequency, inputData.time, inputData.comment, inputData.is_complete, inputData.user_id]);
 				let habit = new Habit(habitData.rows[0]);
-				metrics.habitsByUserId(inputData.user_id);
 				resolve(habit);
+				metrics.habitsByUserId(inputData.user_id);
 			} catch (err) {
 				reject('Habit not created!');
 			};
@@ -82,10 +85,10 @@ module.exports = class Habit {
 	static async update(id, name, frequency, time, _comment, is_complete) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5 is_complete = $6 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment, is_complete]);
+				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5, is_complete = $6 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment, is_complete]);
 				let habit = new Habit(result.rows[0]);
-				metrics.habitsByUserId(id);
 				resolve(habit);
+				metrics.habitsByUserId(id);
 			} catch (err) {
 				reject('Habit could not be updated!');
 			};
