@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
 
 		const isValid = await bcrypt.compare(req.body.password, user.passwordDigest);
 		if (!!isValid){
-			const payload = { username: user.username, email: user.email, id: user.id };
+			const payload = { username: user.username, email: user.email, userId: user.id };
 			const sendToken = (err, token) => {
 				if (err) { throw new Error('Error in token generation.')}
 				res.status(200).json({
