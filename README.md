@@ -1,17 +1,23 @@
-# fp_lap2_project
+# Habi-TraX - Server
 
-> PROJECT DESC
+> Habi-TraX is an easy to use app that will help you to track your daily habits and do them better! (Created for Lap 2 of our futureproof course)
 
 ## Installation & Usage
 
+* The live website can be accessed: [HERE](https://fp-lap2-habit-tracker-server.herokuapp.com/)
+
 ### Installation
 * Clone or download the repo.
-* Then navigate to the `` folder.
 * Run `npm install` to install dependencies.
 
 ### Usage
-* 
-* Run `npm test` to run test suite.
+
+* Run `npm start` to launch server.
+* Run `npm dev` to launch into dev environment.
+* Run `npm seedDev` to seed Dev Database.
+* Run `npm test` to launch test suite.
+* run `npm unitTest` to run Unit Tests.
+* Run `npm coverage` to get test coverage.
 
 ## Changelog
 
