@@ -72,7 +72,7 @@ module.exports = class Habit {
 				const {name, frequency, time, _comment, is_complete, user_id} = inputData;
 				const habitData = await db.query(`INSERT INTO habits (name, frequency, time, comment, is_complete, user_id) 
 													VALUES ($1, $2, $3, $4, $5, $6) 
-													RETURNING *;`, [inputData.name, inputData.frequency, inputData.time, inputData.comment, false, inputData.user_id]);
+													RETURNING *;`, [inputData.name, inputData.frequency, inputData.time, inputData._comment, false, inputData.user_id]);
 				let habit = new Habit(habitData.rows[0]);
 				resolve(habit);
 				metrics.habitsByUserId(inputData.user_id);
