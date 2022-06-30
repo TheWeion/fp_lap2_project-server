@@ -13,7 +13,7 @@ VALUES
     (
         'Stay hydrated', 
         1, 
-        13,
+        '13:00:00',
         NULL,
         true,
         1
@@ -22,7 +22,7 @@ VALUES
     (
         'Eat a fruit', 
         3, 
-        17, 
+        '13:00:00', 
         'some comment about fruits', 
         false,
         2
@@ -31,7 +31,7 @@ VALUES
     (
         'Have fun', 
         2, 
-        18, 
+        '13:00:00', 
         'some comment about artistic activity',
         true,
         1
@@ -40,7 +40,7 @@ VALUES
     (
         'Exercise', 
         1, 
-        8, 
+        '13:00:00', 
         NULL,
         true,
         3
@@ -49,7 +49,7 @@ VALUES
     (
         'Get fresh air', 
         1, 
-        10, 
+        '13:00:00', 
         NULL,
         false,
         3
@@ -58,7 +58,7 @@ VALUES
     (
         'Floss', 
         2, 
-        21, 
+        '13:00:00', 
         'I have nice teeth',
         false,
         1
@@ -67,7 +67,7 @@ VALUES
     (
         'Sleep', 
         1, 
-        22,
+        '13:00:00',
         'Relax',
         true,
         2
@@ -76,7 +76,7 @@ VALUES
     (
         'Tidy up my room', 
         3, 
-        19,
+        '13:00:00',
         NULL,
         true,
         3

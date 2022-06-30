@@ -6,7 +6,7 @@ const nodeCron = require('node-cron');
 async function habitsByUserId (id) {
     return new Promise(async (resolve, reject) => {
         try{
-            let results = await db.query(`SELECT habits.*, users.id 
+            let results = await db.query(`SELECT habits.*, users.habit_streak
                                             FROM habits
                                             JOIN users
                                             ON habits.user_id = users.id
@@ -32,8 +32,9 @@ async function habitsByUserId (id) {
                     }
                 }
             }
-            markedHabit();          
-            resolve(allHabits);
+            markedHabit();
+
+            resolve(data);
         }catch(err){
             reject('User\'s habits not found!');
         }    
