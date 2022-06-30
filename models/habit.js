@@ -21,8 +21,7 @@ module.exports = class Habit {
 		this.frequency = data.frequency;
 		this.time = data.time;
 		this.comment = data.comment;
-		this.user_id = data.user_id;
-		this.isComplete = data.isComplete;
+		this.is_complete = data.is_complete;
 		this.user_id = data.user_id;
 	};
 	
@@ -41,7 +40,7 @@ module.exports = class Habit {
 	static get users() {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const results = await db.query(`SELECT id, username
+				const results = await db.query(`SELECT id, username, habits.*
 												FROM users
 												FULL JOIN habits
 												On users.id = habits.user_id 
@@ -70,8 +69,7 @@ module.exports = class Habit {
 	static async create(inputData) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const {name, frequency, time, _comment, isComplete, user_id} = inputData;
-				const habitData = await db.query(`INSERT INTO habits (name, frequency, time, comment, is_complete, user_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`, [inputData.name, inputData.frequency, inputData.time, inputData.comment, inputData.is_complete, inputData.user_id]);
+				const habitData = await db.query(`INSERT INTO habits (name, frequency, time, comment, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [inputData.name, inputData.frequency, inputData.time, inputData._comment, inputData.user_id]);
 				let habit = new Habit(habitData.rows[0]);
 				metrics.habitsByUserId(inputData.user_id);
 				resolve(habit);
