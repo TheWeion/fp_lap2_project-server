@@ -1,5 +1,3 @@
-const Habit = require('./habit')
-const User = require('./user')
 const db = require('../dbConfig/init')
 const nodeCron = require('node-cron');
 
