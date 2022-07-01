@@ -13,7 +13,6 @@ async function habitsByUserId (id) {
                                             WHERE habits.user_id = $1`, [id]);
             let data = [];
             allHabits = results.rows.map(habit => data.push(habit)); 
-            console.log(data);        
             
             const markedHabit = () => {
                 let streakCounter = 0;  

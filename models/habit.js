@@ -82,12 +82,11 @@ module.exports = class Habit {
 		});
 	};
 
-	static async update(id, name, frequency, time, _comment, is_complete) {
+	static async update(data) {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5, is_complete = $6 WHERE id = $1 RETURNING *;`, [id, name, frequency, time, _comment, is_complete]);
-				let habit = new Habit(result.rows[0]);
-				resolve(habit);
+				const result = await db.query(`UPDATE habits SET name = $2, frequency = $3, time = $4, comment = $5, is_complete = $6 WHERE id = $1 RETURNING *;`, [data.id, data.name, data.frequency, data.time, data.comment, data.is_complete]);
+				resolve();
 				metrics.habitsByUserId(id);
 			} catch (err) {
 				reject('Habit could not be updated!');
