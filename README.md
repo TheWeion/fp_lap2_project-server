@@ -17,7 +17,7 @@
 * Run `npm dev` to launch into dev environment.
 * Run `npm seedDev` to seed Dev Database.
 * Run `npm test` to launch test suite.
-* run `npm unitTest` to run Unit Tests.
+* Run `npm unitTest` to run Unit Tests.
 * Run `npm coverage` to get test coverage.
 
 ## Changelog
