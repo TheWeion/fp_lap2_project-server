@@ -1,9 +1,7 @@
-const Habit = require('./habit')
-const User = require('./user')
 const db = require('../dbConfig/init')
 const nodeCron = require('node-cron');
 
-async function habitsByUserId (id) {
+async function habitsByUserId (id){
     return new Promise(async (resolve, reject) => {
         try{
             let results = await db.query(`SELECT habits.*, users.habit_streak
