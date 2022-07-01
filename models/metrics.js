@@ -31,7 +31,6 @@ async function habitsByUserId (id) {
                 }
             }
             markedHabit();
-            console.log(data);
             resolve(data);
         }catch(err){
             reject('User\'s habits not found!');
@@ -41,8 +40,7 @@ async function habitsByUserId (id) {
 
 async function display(req, res){
 	try{
-        let id = req.params.id;
-        const data = await habitsByUserId(id);
+        const data = await habitsByUserId(req.params.id);
 		res.status(200).json(data)
 	}catch(err){
 		res.status(500).json({ message: err.message});
